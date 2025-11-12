@@ -41,7 +41,7 @@ const Investment = () => {
                 </div>
                 <div className="inline-flex items-center gap-3 text-6xl md:text-7xl font-display text-foreground">
                   <span>R$</span>
-                  <span className="font-bold text-shimmer">350</span>
+                  <span className="font-bold text-gold">350</span>
                   <span className="text-3xl">,00</span>
                 </div>
                 <div className="flex items-center justify-center gap-2 text-muted-foreground">
@@ -82,10 +82,10 @@ const Investment = () => {
               <div className="pt-6">
                 <Button
                   size="lg"
-                  className="w-full text-lg bg-gradient-gold text-primary-foreground hover:scale-105 transition-all duration-500 shadow-2xl"
+                  className="w-full text-lg font-bold bg-foreground text-white hover:bg-foreground/90 hover:scale-105 transition-all duration-500 shadow-2xl"
                   onClick={() => window.open("https://wa.me/5511999999999", "_blank")}
                 >
-                  <span className="text-shimmer">Quero participar</span>
+                  Quero participar
                 </Button>
                 <p className="text-center text-sm text-muted-foreground mt-4">
                   Clique para garantir sua vaga pelo WhatsApp

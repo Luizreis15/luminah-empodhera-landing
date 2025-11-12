@@ -34,16 +34,13 @@ const Venue = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center space-y-3 mb-10">
-          <h2 className="text-4xl md:text-5xl font-display text-primary-foreground">
-            Um Ambiente à Altura do seu Brilho
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4 drop-shadow-lg">
+            O Ambiente Perfeito
           </h2>
-          <div className="flex items-center justify-center gap-2 text-gold-hover">
-            <MapPin className="w-5 h-5" />
-            <p className="text-xl font-display">Coco Bambu Santo André</p>
+          <div className="flex items-center gap-2 text-white text-lg justify-center drop-shadow-md">
+            <MapPin className="w-5 h-5 text-gold" />
+            <span>Coco Bambu - Santo André</span>
           </div>
-          <p className="text-primary-foreground/80 max-w-2xl mx-auto">
-            Um espaço que combina elegância, conforto e sofisticação para uma experiência memorável
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -67,11 +64,11 @@ const Venue = () => {
               </div>
 
               {/* Content overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-primary-foreground transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                <h3 className="text-xl font-display mb-2 text-shimmer">
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                <h3 className="text-xl font-display font-bold drop-shadow-lg mb-2">
                   {venue.title}
                 </h3>
-                <p className="text-sm text-primary-foreground/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                <p className="text-sm text-white drop-shadow-md leading-relaxed">
                   {venue.description}
                 </p>
               </div>
@@ -82,10 +79,11 @@ const Venue = () => {
           ))}
         </div>
 
-        <div className="text-center mt-8">
-          <p className="text-primary-foreground/70 text-sm">
-            Alameda Campinas, 510 - Jardim, Santo André - SP
-          </p>
+        <div className="text-center pt-8">
+          <div className="inline-flex items-center gap-2 text-white text-lg drop-shadow-md">
+            <MapPin className="w-5 h-5 text-gold" />
+            <span>Alameda Vieira de Carvalho, 70 - Centro, Santo André - SP</span>
+          </div>
         </div>
       </div>
     </section>

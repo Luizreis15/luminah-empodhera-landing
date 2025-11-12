@@ -16,10 +16,10 @@ const FinalCTA = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display text-primary-foreground leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground leading-tight">
             Sua Jornada de Transformação
             <br />
-            <span className="text-shimmer">Começa Aqui</span>
+            <span className="font-bold">Começa Aqui</span>
           </h2>
           
           <p className="text-xl text-primary-foreground/90 leading-relaxed">
@@ -30,10 +30,10 @@ const FinalCTA = () => {
           <div className="space-y-4 pt-6">
             <Button
               size="lg"
-              className="bg-white hover:bg-white/90 text-gold px-12 py-6 text-lg font-semibold rounded-full shadow-2xl hover:shadow-elegant transition-all duration-500 hover:scale-110 animate-pulse-gold"
+              className="bg-foreground hover:bg-foreground/90 text-white px-12 py-6 text-lg font-bold rounded-full shadow-2xl hover:shadow-elegant transition-all duration-500 hover:scale-110"
               onClick={() => window.open('https://wa.me/5511999999999?text=Quero%20garantir%20minha%20vaga%20no%20EMPODHERA!', '_blank')}
             >
-              <span className="text-shimmer">Quero participar do EMPODHERA</span>
+              Quero participar do EMPODHERA
             </Button>
             
             <p className="text-sm text-primary-foreground/80">
