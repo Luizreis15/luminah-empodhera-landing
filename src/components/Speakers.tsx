@@ -28,14 +28,14 @@ const speakers = [
 
 const Speakers = () => {
   return (
-    <section className="py-8 bg-gradient-to-b from-gold-light/30 to-background relative overflow-hidden">
+    <section className="py-10 md:py-12 bg-gradient-to-b from-gold-light/30 to-background relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-gold/10 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-gold-hover/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
       
       <div className="container mx-auto px-4">
-        <div className="text-center space-y-3 mb-12">
-          <h2 className="text-4xl md:text-5xl font-display text-foreground">
+        <div className="text-center space-y-3 mb-8 md:mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-foreground">
             Vozes que Inspiram
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -43,7 +43,7 @@ const Speakers = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
           {speakers.map((speaker, index) => (
             <div
               key={index}
@@ -51,7 +51,7 @@ const Speakers = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative inline-block mb-4">
-                <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-gold transition-all duration-500 group-hover:scale-105 group-hover:border-gold-hover relative">
+                <div className="w-40 h-40 sm:w-48 sm:h-48 mx-auto rounded-full overflow-hidden border-4 border-gold transition-all duration-500 group-hover:scale-105 group-hover:border-gold-hover relative">
                   <img
                     src={speaker.image}
                     alt={speaker.name}

@@ -35,12 +35,12 @@ const Content = () => {
   ];
 
   return (
-    <section className="py-6 bg-white relative overflow-hidden" id="conteudo">
+    <section className="py-10 md:py-12 bg-white relative overflow-hidden" id="conteudo">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto space-y-10">
+        <div className="max-w-6xl mx-auto space-y-6 md:space-y-8">
           {/* Header */}
-          <div className="text-center space-y-6 animate-fade-in">
-            <h2 className="text-5xl md:text-6xl font-display text-foreground">
+          <div className="text-center space-y-4 md:space-y-6 animate-fade-in">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display text-foreground">
               O que você vai viver no<br />
               <span className="text-gold">EMPODHERA</span>
             </h2>
@@ -48,7 +48,7 @@ const Content = () => {
           </div>
 
           {/* Experiences Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {experiences.map((experience, index) => {
               const Icon = experience.icon;
               return (

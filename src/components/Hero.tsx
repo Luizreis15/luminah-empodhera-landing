@@ -9,7 +9,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-nude">
+    <section className="relative min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden bg-gradient-nude">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -21,11 +21,11 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-10 text-center">
-        <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
+      <div className="relative z-10 container mx-auto px-4 py-16 md:py-20 text-center">
+        <div className="max-w-4xl mx-auto space-y-4 md:space-y-6 animate-fade-in">
           {/* Logo/Title */}
           <div className="space-y-4">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-display font-bold text-foreground tracking-tight leading-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-foreground tracking-tight leading-tight">
             EMPODHERA
           </h1>
             <div className="w-32 h-1 bg-gold mx-auto" />
@@ -50,7 +50,7 @@ const Hero = () => {
           </div>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
             <Button
               variant="premium"
               size="lg"

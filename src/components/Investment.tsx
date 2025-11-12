@@ -12,7 +12,7 @@ const Investment = () => {
   ];
 
   return (
-    <section className="py-8 bg-gradient-gold relative overflow-hidden" id="investimento">
+    <section className="py-10 md:py-12 bg-gradient-gold relative overflow-hidden" id="investimento">
       {/* Decorative Elements */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-gold rounded-full blur-3xl" />
@@ -20,10 +20,10 @@ const Investment = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-4xl mx-auto space-y-6 md:space-y-8">
           {/* Header */}
           <div className="text-center space-y-4 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-display text-primary-foreground">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary-foreground drop-shadow-lg">
               Investimento na Sua Transformação
             </h2>
             <p className="text-lg text-primary-foreground/90 max-w-2xl mx-auto">
@@ -32,7 +32,7 @@ const Investment = () => {
           </div>
 
           {/* Pricing Card */}
-          <div className="bg-white rounded-2xl shadow-2xl p-8 animate-scale-in border-4 border-primary-foreground/20 hover:border-primary-foreground/40 transition-all duration-500 hover:scale-105">
+          <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 animate-scale-in border-4 border-primary-foreground/20 hover:border-primary-foreground/40 transition-all duration-500 hover:scale-105">
             <div className="space-y-8">
               {/* Price */}
               <div className="text-center space-y-4">

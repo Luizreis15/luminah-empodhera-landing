@@ -23,7 +23,7 @@ const venueImages = [
 
 const Venue = () => {
   return (
-    <section className="py-8 bg-dark-elegant relative overflow-hidden">
+    <section className="py-10 md:py-12 bg-dark-elegant relative overflow-hidden">
       {/* Decorative floating elements */}
       <div className="absolute top-10 right-20 w-64 h-64 bg-gold/5 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-20 left-10 w-48 h-48 bg-gold-hover/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }} />
@@ -33,8 +33,8 @@ const Venue = () => {
       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center space-y-3 mb-10">
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4 drop-shadow-lg">
+        <div className="text-center space-y-3 mb-8 md:mb-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4 drop-shadow-lg">
             O Ambiente Perfeito
           </h2>
           <div className="flex items-center gap-2 text-white text-lg justify-center drop-shadow-md">
@@ -43,7 +43,7 @@ const Venue = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
           {venueImages.map((venue, index) => (
             <div
               key={index}

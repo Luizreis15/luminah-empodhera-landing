@@ -25,7 +25,7 @@ const Purpose = () => {
   ];
 
   return (
-    <section className="py-6 bg-background-secondary pattern-dots relative overflow-hidden" id="proposito">
+    <section className="py-10 md:py-12 bg-background-secondary pattern-dots relative overflow-hidden" id="proposito">
       {/* Decorative Elements */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-20 right-20 w-64 h-64 bg-gold rounded-full blur-3xl" />
@@ -33,18 +33,18 @@ const Purpose = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-5xl mx-auto space-y-8">
+        <div className="max-w-5xl mx-auto space-y-6 md:space-y-8">
           {/* Header */}
           <div className="text-center space-y-4 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-display text-foreground">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-foreground">
               Por que este encontro existe
             </h2>
             <div className="w-24 h-1 bg-gold mx-auto" />
           </div>
 
           {/* Main Text Block - Destacado */}
-          <div className="bg-white rounded-2xl shadow-elegant p-8 md:p-12 border-2 border-gold/20 animate-scale-in max-w-4xl mx-auto">
-            <div className="space-y-6 text-lg text-foreground/80 leading-relaxed text-center">
+          <div className="bg-white rounded-2xl shadow-elegant p-6 md:p-10 lg:p-12 border-2 border-gold/20 animate-scale-in max-w-4xl mx-auto">
+            <div className="space-y-4 md:space-y-6 text-base md:text-lg text-foreground/80 leading-relaxed text-center">
               <p>
                 O <span className="font-semibold text-gold">EMPODHERA</span> nasceu para{" "}
                 <span className="font-semibold text-foreground">acender o brilho de mulheres empreendedoras</span>{" "}
@@ -59,7 +59,7 @@ const Purpose = () => {
           </div>
 
           {/* Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-8">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (

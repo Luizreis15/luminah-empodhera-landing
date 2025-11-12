@@ -25,24 +25,24 @@ const EventDetails = () => {
   ];
 
   return (
-    <section className="py-6 bg-background pattern-dots relative overflow-hidden">
+    <section className="py-10 md:py-12 bg-background pattern-dots relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto space-y-10">
+        <div className="max-w-4xl mx-auto space-y-6 md:space-y-8">
           {/* Header */}
           <div className="text-center space-y-4 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-display text-foreground">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-foreground">
               Informações Práticas
             </h2>
           </div>
 
           {/* Details Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {details.map((detail, index) => {
               const Icon = detail.icon;
               return (
                 <div
                   key={index}
-                  className="group p-8 bg-card rounded-xl shadow-soft hover:shadow-elegant transition-smooth border border-border hover:border-gold animate-slide-up"
+                  className="group p-6 md:p-8 bg-card rounded-xl shadow-soft hover:shadow-elegant transition-smooth border border-border hover:border-gold animate-slide-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-start gap-4">
