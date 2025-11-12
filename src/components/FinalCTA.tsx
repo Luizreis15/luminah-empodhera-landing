@@ -30,7 +30,7 @@ const FinalCTA = () => {
           <div className="space-y-4 pt-6">
             <Button
               size="lg"
-              className="bg-foreground hover:bg-foreground/90 text-white px-12 py-6 text-lg font-bold rounded-full shadow-2xl hover:shadow-elegant transition-all duration-500 hover:scale-110"
+              className="w-full sm:w-auto bg-foreground hover:bg-foreground/90 text-white px-6 sm:px-10 md:px-12 py-4 md:py-6 text-sm sm:text-base md:text-lg font-bold rounded-full shadow-2xl hover:shadow-elegant transition-all duration-500 hover:scale-110"
               onClick={() => window.open('https://wa.me/5511999999999?text=Quero%20garantir%20minha%20vaga%20no%20EMPODHERA!', '_blank')}
             >
               Quero participar do EMPODHERA
