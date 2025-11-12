@@ -21,8 +21,8 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-20 text-center">
-        <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
+      <div className="relative z-10 container mx-auto px-4 py-10 text-center">
+        <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
           {/* Logo/Title */}
           <div className="space-y-4">
             <h1 className="text-7xl md:text-9xl font-display font-light text-foreground tracking-wide">

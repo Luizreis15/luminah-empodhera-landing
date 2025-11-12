@@ -1,7 +1,9 @@
 import Hero from "@/components/Hero";
 import Purpose from "@/components/Purpose";
 import Creators from "@/components/Creators";
+import Speakers from "@/components/Speakers";
 import Content from "@/components/Content";
+import Venue from "@/components/Venue";
 import Investment from "@/components/Investment";
 import EventDetails from "@/components/EventDetails";
 import FinalCTA from "@/components/FinalCTA";
@@ -13,7 +15,9 @@ const Index = () => {
       <Hero />
       <Purpose />
       <Creators />
+      <Speakers />
       <Content />
+      <Venue />
       <Investment />
       <EventDetails />
       <FinalCTA />

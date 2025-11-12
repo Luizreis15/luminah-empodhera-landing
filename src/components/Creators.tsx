@@ -24,7 +24,7 @@ const Creators = () => {
   ];
 
   return (
-    <section className="py-16 bg-dark-elegant relative overflow-hidden" id="criadoras">
+    <section className="py-8 bg-dark-elegant relative overflow-hidden" id="criadoras">
       {/* Decorative Elements */}
       <div className="absolute inset-0 opacity-30 pointer-events-none">
         <div className="absolute top-1/4 left-10 w-96 h-96 bg-gold rounded-full blur-3xl" />
@@ -32,7 +32,7 @@ const Creators = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-6xl mx-auto space-y-16">
+        <div className="max-w-6xl mx-auto space-y-10">
           {/* Header */}
           <div className="text-center space-y-6 animate-fade-in">
             <h2 className="text-5xl md:text-6xl font-display text-gold">
@@ -42,7 +42,7 @@ const Creators = () => {
           </div>
 
           {/* Creators Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {creators.map((creator, index) => (
               <div
                 key={index}
@@ -51,15 +51,15 @@ const Creators = () => {
               >
                 {/* Portrait */}
                 <div className="relative group">
-                  <div className="w-64 h-64 rounded-full overflow-hidden shadow-elegant group-hover:scale-105 transition-smooth">
+                  <div className="absolute inset-0 bg-gradient-gold rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500 animate-pulse-gold" />
+                  <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-gold shadow-elegant group-hover:scale-105 transition-transform duration-500">
                     <img
                       src={creator.image}
                       alt={creator.name}
                       className="w-full h-full object-cover"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gold/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
-                  <div className="absolute inset-0 ring-[6px] ring-gold rounded-full group-hover:ring-gold-hover transition-smooth animate-pulse" />
-                  <div className="absolute inset-0 bg-gold/20 opacity-0 group-hover:opacity-100 transition-smooth rounded-full" />
                 </div>
 
                 {/* Name */}

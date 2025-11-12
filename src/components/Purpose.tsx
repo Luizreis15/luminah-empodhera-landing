@@ -25,7 +25,7 @@ const Purpose = () => {
   ];
 
   return (
-    <section className="py-12 bg-background-secondary pattern-dots relative overflow-hidden" id="proposito">
+    <section className="py-6 bg-background-secondary pattern-dots relative overflow-hidden" id="proposito">
       {/* Decorative Elements */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-20 right-20 w-64 h-64 bg-gold rounded-full blur-3xl" />
@@ -33,7 +33,7 @@ const Purpose = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-12">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
           {/* Header */}
           <div className="space-y-6 animate-fade-in">
             <h2 className="text-5xl md:text-6xl font-display text-foreground">
@@ -57,15 +57,17 @@ const Purpose = () => {
           </div>
 
           {/* Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
                 <div
                   key={index}
-                  className="group p-8 bg-card rounded-xl shadow-soft hover:shadow-elegant transition-smooth border border-border hover:border-gold"
+                  className="group p-6 bg-white rounded-xl shadow-soft hover:shadow-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 border-2 border-transparent hover:border-gold relative overflow-hidden"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
+                  {/* Shimmer effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                   <div className="flex flex-col items-center text-center space-y-4">
                     <div className="w-16 h-16 rounded-full bg-gold-light flex items-center justify-center group-hover:scale-110 transition-smooth">
                       <Icon className="w-8 h-8 text-gold" />

@@ -25,15 +25,14 @@ const EventDetails = () => {
   ];
 
   return (
-    <section className="py-12 bg-background pattern-dots">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto space-y-12">
+    <section className="py-6 bg-background pattern-dots relative overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-4xl mx-auto space-y-10">
           {/* Header */}
-          <div className="text-center space-y-6 animate-fade-in">
-            <h2 className="text-5xl md:text-6xl font-display text-foreground">
+          <div className="text-center space-y-4 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-display text-foreground">
               Informações Práticas
             </h2>
-            <div className="w-24 h-1 bg-gold mx-auto" />
           </div>
 
           {/* Details Grid */}
