@@ -32,20 +32,20 @@ const Hero = () => {
           </div>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl font-body text-foreground/80 max-w-2xl mx-auto leading-relaxed px-4">
+          <p className="text-lg md:text-xl font-body text-foreground font-semibold max-w-2xl mx-auto leading-relaxed px-4 drop-shadow-lg">
             O Encontro das Mulheres que Decidiram Brilhar com Propósito e Autoridade
           </p>
 
           {/* Event Details */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-foreground/70 font-body">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-foreground font-body">
             <div className="flex items-center gap-2">
               <Calendar className="w-5 h-5 text-gold" />
-              <span className="font-medium">15 de Dezembro, 2025</span>
+              <span className="font-semibold drop-shadow-md">15 de Dezembro, 2025</span>
             </div>
             <div className="hidden sm:block w-1 h-1 rounded-full bg-gold" />
             <div className="flex items-center gap-2">
               <MapPin className="w-5 h-5 text-gold" />
-              <span className="font-medium">Coco Bambu Santo André</span>
+              <span className="font-semibold drop-shadow-md">Coco Bambu Santo André</span>
             </div>
           </div>
 
