@@ -15,9 +15,9 @@ const Hero = () => {
         <img
           src={heroImage}
           alt="Elegant dining experience"
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-50"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/80" />
       </div>
 
       {/* Content */}
@@ -67,13 +67,6 @@ const Hero = () => {
             >
               Ver programação
             </Button>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="pt-12 animate-bounce">
-            <div className="w-6 h-10 border-2 border-gold rounded-full mx-auto flex items-start justify-center p-2">
-              <div className="w-1 h-2 bg-gold rounded-full" />
-            </div>
           </div>
         </div>
       </div>

@@ -33,27 +33,29 @@ const Purpose = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
+        <div className="max-w-5xl mx-auto space-y-8">
           {/* Header */}
-          <div className="space-y-6 animate-fade-in">
-            <h2 className="text-5xl md:text-6xl font-display text-foreground">
+          <div className="text-center space-y-4 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-display text-foreground">
               Por que este encontro existe
             </h2>
             <div className="w-24 h-1 bg-gold mx-auto" />
           </div>
 
-          {/* Main Text */}
-          <div className="space-y-6 text-lg text-foreground/80 leading-relaxed animate-slide-up">
-            <p>
-              O <span className="font-semibold text-gold">EMPODHERA</span> nasceu para{" "}
-              <span className="font-semibold text-foreground">acender o brilho de mulheres empreendedoras</span>{" "}
-              e inspirar uma nova era de liderança feminina no ABC.
-            </p>
-            <p>
-              Criado por <span className="font-semibold text-foreground">Samira Gouvêa</span> e{" "}
-              <span className="font-semibold text-foreground">Simone Ribeiro</span>, o evento é um espaço de
-              transformação, propósito e conexão — onde negócios, imagem e valores se unem para gerar resultados reais.
-            </p>
+          {/* Main Text Block - Destacado */}
+          <div className="bg-white rounded-2xl shadow-elegant p-8 md:p-12 border-2 border-gold/20 animate-scale-in max-w-4xl mx-auto">
+            <div className="space-y-6 text-lg text-foreground/80 leading-relaxed text-center">
+              <p>
+                O <span className="font-semibold text-gold">EMPODHERA</span> nasceu para{" "}
+                <span className="font-semibold text-foreground">acender o brilho de mulheres empreendedoras</span>{" "}
+                e inspirar uma nova era de liderança feminina no ABC.
+              </p>
+              <p>
+                Criado por <span className="font-semibold text-foreground">Samira Gouvêa</span> e{" "}
+                <span className="font-semibold text-foreground">Simone Ribeiro</span>, o evento é um espaço de
+                transformação, propósito e conexão — onde negócios, imagem e valores se unem para gerar resultados reais.
+              </p>
+            </div>
           </div>
 
           {/* Benefits Grid */}
