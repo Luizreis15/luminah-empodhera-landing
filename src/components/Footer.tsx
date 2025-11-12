@@ -8,7 +8,7 @@ const Footer = () => {
           {/* Logo/Title */}
           <div className="text-center space-y-6 mb-8">
             <h3 className="text-3xl font-display text-background">
-              LUMINAH | EMPODHERA
+              EMPODHERA
             </h3>
             <div className="w-16 h-px bg-gold mx-auto" />
           </div>
@@ -52,7 +52,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="text-center text-background/70 text-sm space-y-2">
-            <p>© 2025 LUMINAH | EMPODHERA. Todos os direitos reservados.</p>
+            <p>© 2025 EMPODHERA. Todos os direitos reservados.</p>
             <p>Evento idealizado por Samira Gouvêa e Simone Ribeiro.</p>
           </div>
         </div>

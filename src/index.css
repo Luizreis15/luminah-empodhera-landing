@@ -149,6 +149,30 @@
   .transition-smooth {
     transition: var(--transition-smooth);
   }
+  
+  /* Padrão decorativo sutil */
+  .pattern-dots {
+    background-image: radial-gradient(circle, hsl(30 35% 55% / 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  
+  /* Gradiente escuro sofisticado */
+  .bg-dark-elegant {
+    background: linear-gradient(135deg, #2C2420 0%, #1A1512 100%);
+  }
+  
+  /* Overlay dourado suave */
+  .overlay-gold {
+    position: relative;
+  }
+  .overlay-gold::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, hsl(30 35% 55% / 0.15), transparent 50%),
+                radial-gradient(circle at bottom left, hsl(30 40% 65% / 0.15), transparent 50%);
+    pointer-events: none;
+  }
 }
 
 @layer base {

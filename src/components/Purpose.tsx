@@ -25,8 +25,14 @@ const Purpose = () => {
   ];
 
   return (
-    <section className="py-24 bg-background" id="proposito">
-      <div className="container mx-auto px-4">
+    <section className="py-12 bg-background-secondary pattern-dots relative overflow-hidden" id="proposito">
+      {/* Decorative Elements */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div className="absolute top-20 right-20 w-64 h-64 bg-gold rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-64 h-64 bg-gold rounded-full blur-3xl" />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-12">
           {/* Header */}
           <div className="space-y-6 animate-fade-in">
@@ -39,7 +45,7 @@ const Purpose = () => {
           {/* Main Text */}
           <div className="space-y-6 text-lg text-foreground/80 leading-relaxed animate-slide-up">
             <p>
-              O <span className="font-semibold text-gold">LUMINAH | EMPODHERA</span> nasceu para{" "}
+              O <span className="font-semibold text-gold">EMPODHERA</span> nasceu para{" "}
               <span className="font-semibold text-foreground">acender o brilho de mulheres empreendedoras</span>{" "}
               e inspirar uma nova era de liderança feminina no ABC.
             </p>

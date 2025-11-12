@@ -12,8 +12,14 @@ const Investment = () => {
   ];
 
   return (
-    <section className="py-24 bg-background-secondary" id="investimento">
-      <div className="container mx-auto px-4">
+    <section className="py-16 bg-background-secondary overlay-gold relative overflow-hidden" id="investimento">
+      {/* Decorative Elements */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-gold rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-gold rounded-full blur-3xl" />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto space-y-12">
           {/* Header */}
           <div className="text-center space-y-6 animate-fade-in">
@@ -24,31 +30,34 @@ const Investment = () => {
           </div>
 
           {/* Pricing Card */}
-          <div className="bg-card rounded-2xl shadow-elegant p-8 md:p-12 border-2 border-gold animate-scale-in">
+          <div className="bg-gradient-gold rounded-2xl shadow-elegant p-8 md:p-12 border-2 border-gold-hover animate-scale-in">
             <div className="space-y-8">
               {/* Price */}
               <div className="text-center space-y-4">
-                <div className="inline-flex items-center gap-3 text-6xl md:text-7xl font-display text-foreground">
-                  <span className="text-gold">R$</span>
-                  <span className="font-bold">350</span>
-                  <span className="text-3xl text-muted-foreground">,00</span>
+                <div className="inline-block px-6 py-2 bg-white/20 rounded-full mb-2">
+                  <span className="text-sm font-semibold text-primary-foreground uppercase tracking-wider">Investimento</span>
                 </div>
-                <div className="flex items-center justify-center gap-2 text-foreground/70">
-                  <CreditCard className="w-5 h-5 text-gold" />
+                <div className="inline-flex items-center gap-3 text-6xl md:text-7xl font-display text-primary-foreground">
+                  <span>R$</span>
+                  <span className="font-bold">350</span>
+                  <span className="text-3xl">,00</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 text-primary-foreground/90">
+                  <CreditCard className="w-5 h-5" />
                   <p className="text-lg">Pagamento em até 3x sem juros</p>
                 </div>
-                <p className="text-lg font-semibold text-gold">
-                  Vagas limitadas a 30 mulheres
-                </p>
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 rounded-full">
+                  <span className="text-sm font-semibold text-primary-foreground">Vagas limitadas a 30 mulheres</span>
+                </div>
               </div>
 
               {/* Divider */}
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-border" />
+                  <div className="w-full border-t border-white/30" />
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="bg-card px-4 text-muted-foreground">O que está incluído</span>
+                  <span className="bg-gold px-4 text-primary-foreground font-semibold">O que está incluído</span>
                 </div>
               </div>
 
@@ -57,12 +66,12 @@ const Investment = () => {
                 {benefits.map((benefit, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-3 p-4 rounded-lg hover:bg-background-secondary transition-smooth"
+                    className="flex items-start gap-3 p-4 rounded-lg bg-white/10 hover:bg-white/20 transition-smooth"
                   >
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gold-light flex items-center justify-center mt-0.5">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-white flex items-center justify-center mt-0.5">
                       <Check className="w-4 h-4 text-gold" />
                     </div>
-                    <span className="text-foreground/80 leading-relaxed">{benefit}</span>
+                    <span className="text-primary-foreground/90 leading-relaxed">{benefit}</span>
                   </div>
                 ))}
               </div>
@@ -70,14 +79,14 @@ const Investment = () => {
               {/* CTA */}
               <div className="pt-6">
                 <Button
-                  variant="premium"
+                  variant="elegant"
                   size="lg"
-                  className="w-full text-lg"
+                  className="w-full text-lg shadow-elegant hover:shadow-2xl"
                   onClick={() => window.open("https://wa.me/5511999999999", "_blank")}
                 >
                   Quero participar
                 </Button>
-                <p className="text-center text-sm text-muted-foreground mt-4">
+                <p className="text-center text-sm text-primary-foreground/80 mt-4">
                   Clique para garantir sua vaga pelo WhatsApp
                 </p>
               </div>

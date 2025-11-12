@@ -25,7 +25,7 @@ const EventDetails = () => {
   ];
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-12 bg-background pattern-dots">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto space-y-12">
           {/* Header */}

@@ -25,17 +25,10 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
           {/* Logo/Title */}
           <div className="space-y-4">
-            <h1 className="text-6xl md:text-8xl font-display font-light text-foreground tracking-wide">
-              LUMINAH
-            </h1>
-            <div className="flex items-center justify-center gap-4">
-              <div className="h-px w-16 bg-gold" />
-              <span className="text-2xl md:text-3xl font-display text-gold">|</span>
-              <div className="h-px w-16 bg-gold" />
-            </div>
-            <h2 className="text-4xl md:text-5xl font-display font-light text-foreground">
+            <h1 className="text-7xl md:text-9xl font-display font-light text-foreground tracking-wide">
               EMPODHERA
-            </h2>
+            </h1>
+            <div className="w-32 h-1 bg-gold mx-auto" />
           </div>
 
           {/* Subtitle */}

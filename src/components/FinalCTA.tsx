@@ -3,11 +3,12 @@ import { Sparkles } from "lucide-react";
 
 const FinalCTA = () => {
   return (
-    <section className="py-32 bg-gradient-nude relative overflow-hidden">
+    <section className="py-20 bg-gradient-nude relative overflow-hidden">
       {/* Decorative Elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gold rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gold rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-hover rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -31,7 +32,7 @@ const FinalCTA = () => {
           {/* Description */}
           <div className="space-y-6">
             <p className="text-2xl font-display text-foreground/90">
-              LUMINAH | EMPODHERA — Edição inaugural
+              EMPODHERA — Edição inaugural
             </p>
             <p className="text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
               Uma noite que vai marcar sua trajetória como mulher, empreendedora e líder.

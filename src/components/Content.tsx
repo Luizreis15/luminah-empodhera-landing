@@ -35,17 +35,15 @@ const Content = () => {
   ];
 
   return (
-    <section className="py-24 bg-background" id="conteudo">
+    <section className="py-12 bg-gradient-to-b from-background to-gold-light/20 relative" id="conteudo">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto space-y-16">
           {/* Header */}
           <div className="text-center space-y-6 animate-fade-in">
             <h2 className="text-5xl md:text-6xl font-display text-foreground">
-              O que você vai viver no
+              O que você vai viver no<br />
+              <span className="text-gold">EMPODHERA</span>
             </h2>
-            <h3 className="text-4xl md:text-5xl font-display text-gold">
-              LUMINAH | EMPODHERA
-            </h3>
             <div className="w-24 h-1 bg-gold mx-auto" />
           </div>
 
@@ -56,7 +54,7 @@ const Content = () => {
               return (
                 <div
                   key={index}
-                  className="group p-8 bg-card rounded-xl shadow-soft hover:shadow-elegant transition-smooth border border-border hover:border-gold animate-slide-up"
+                  className="group p-8 bg-white rounded-xl shadow-soft hover:shadow-elegant transition-smooth border border-border hover:border-2 hover:border-gold animate-slide-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex flex-col items-center text-center space-y-4">
