@@ -26,7 +26,7 @@ const Hero = () => {
           {/* Logo/Title */}
           <div className="space-y-4">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-italianno font-normal text-foreground tracking-tight leading-tight">
-            EMPODHERA
+            Empodhera
           </h1>
             <div className="w-32 h-1 bg-gold mx-auto" />
           </div>
