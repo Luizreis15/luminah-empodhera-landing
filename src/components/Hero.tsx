@@ -25,7 +25,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto space-y-4 md:space-y-6 animate-fade-in">
           {/* Logo/Title */}
           <div className="space-y-4">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-italianno font-normal text-foreground tracking-tight leading-tight">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-italianno font-normal text-foreground tracking-tight leading-tight">
             Empodhera
           </h1>
             <div className="w-32 h-1 bg-gold mx-auto" />
