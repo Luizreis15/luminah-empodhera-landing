@@ -55,6 +55,7 @@ export default {
       fontFamily: {
         display: ['Cormorant Garamond', 'Georgia', 'serif'],
         body: ['Montserrat', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        italianno: ['Italianno', 'cursive'],
       },
       borderRadius: {
         lg: "var(--radius)",
