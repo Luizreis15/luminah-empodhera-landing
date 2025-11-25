@@ -28,7 +28,7 @@ const Creators = () => {
       bio: [
         "Contadora e empresária com mais de 20 anos de experiência em gestão contábil e fiscal.",
         "Especialista em estruturar controles financeiros e implementar inteligência fiscal que transformam a saúde das empresas.",
-        "Dedicada a levar clareza e segurança financeira para empreendedoras que querem crescer com solidez.",
+        "Domina também gestão de pessoas e estratégias comerciais, ajudando empreendedoras a construírem equipes fortes, rotinas eficientes e crescimento sustentável.",
       ],
     },
   ];
