@@ -37,7 +37,7 @@ const FinalCTA = () => {
             </Button>
             
             <p className="text-sm text-primary-foreground/80">
-              "Evento idealizado por Samira Gouvêa e Simone Ribeiro"
+              "Evento idealizado por Samira Gouvêa, Simone Ribeiro e Sueli Rocha"
             </p>
           </div>
         </div>
