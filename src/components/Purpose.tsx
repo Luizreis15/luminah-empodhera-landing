@@ -51,8 +51,9 @@ const Purpose = () => {
                 e inspirar uma nova era de liderança feminina no ABC.
               </p>
               <p>
-                Criado por <span className="font-semibold text-foreground">Samira Gouvêa</span> e{" "}
-                <span className="font-semibold text-foreground">Simone Ribeiro</span>, o evento é um espaço de
+                Criado por <span className="font-semibold text-foreground">Samira Gouvêa</span>,{" "}
+                <span className="font-semibold text-foreground">Simone Ribeiro</span> e{" "}
+                <span className="font-semibold text-foreground">Sueli Rocha</span>, o evento é um espaço de
                 transformação, propósito e conexão — onde negócios, imagem e valores se unem para gerar resultados reais.
               </p>
             </div>

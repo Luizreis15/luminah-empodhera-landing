@@ -53,7 +53,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-center text-background/70 text-sm space-y-2">
             <p>© 2025 EMPODHERA. Todos os direitos reservados.</p>
-            <p>Evento idealizado por Samira Gouvêa e Simone Ribeiro.</p>
+            <p>Evento idealizado por Samira Gouvêa, Simone Ribeiro e Sueli Rocha.</p>
           </div>
         </div>
       </div>
