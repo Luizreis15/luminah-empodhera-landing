@@ -26,8 +26,8 @@ const Creators = () => {
       name: "Sueli Rocha",
       image: sueliImage,
       bio: [
-        "Contadora e empresária com mais de 20 anos de experiência em gestão contábil e fiscal.",
-        "Especialista em estruturar controles financeiros e implementar inteligência fiscal que transformam a saúde das empresas.",
+        "Empresária e especialista em gestão de pessoas, com sólida formação contábil e mais de 20 anos de experiência.",
+        "Une inteligência fiscal e liderança de equipes para transformar a saúde financeira e organizacional das empresas que acompanha.",
         "Domina também gestão de pessoas e estratégias comerciais, ajudando empreendedoras a construírem equipes fortes, rotinas eficientes e crescimento sustentável.",
       ],
     },
