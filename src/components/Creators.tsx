@@ -8,9 +8,8 @@ const Creators = () => {
       name: "Samira Gouvêa",
       image: samiraImage,
       bio: [
-        "Empresária multinegócios, fundadora da Hera Digital.",
-        "Especialista em posicionamento e transformação de marcas, Samira já reestruturou empresas que estavam em declínio e as levou a um novo patamar de prosperidade.",
-        "Casada, mãe e apaixonada por ajudar outras mulheres a conquistarem espaço com autenticidade.",
+        "Samira Gouvêa é estrategista digital, especialista em branding e posicionamento, e uma das vozes mais autênticas quando o assunto é construir marcas fortes no Instagram. Com uma jornada marcada por múltiplos negócios, ela une experiência prática, sensibilidade estética e visão empreendedora para transformar perfis comuns em marcas magnéticas.",
+        "Determinada, multifacetada e apaixonada por resultados, Samira atua como sócia em diversos projetos, cria produtos digitais, lidera estratégias de marketing e inspira mulheres a se tornarem protagonistas das próprias histórias.",
       ],
     },
     {
