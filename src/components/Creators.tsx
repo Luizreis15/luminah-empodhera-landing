@@ -17,9 +17,9 @@ const Creators = () => {
       name: "Simone Ribeiro",
       image: simoneImage,
       bio: [
-        "Empresária, educadora e multigestora nos ramos de educação, logística e construção.",
-        "Reconhecida por sua visão estratégica, liderança e amor por conectar pessoas e negócios.",
-        "Casada, mãe dedicada e inspiradora por natureza.",
+        "Empresária, educadora e multigestora com atuação nos ramos de educação, logística e construção.",
+        "Reconhecida por sua visão estratégica e liderança, Simone tem o dom de conectar pessoas, ideias e negócios de forma transformadora.",
+        "Casada, mãe dedicada e apaixonada por inspirar mulheres a expandirem seus horizontes com coragem e propósito.",
       ],
     },
     {
