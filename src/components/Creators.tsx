@@ -1,5 +1,6 @@
 import samiraImage from "@/assets/samira-portrait.jpg";
 import simoneImage from "@/assets/simone-portrait.jpg";
+import sueliImage from "@/assets/sueli-portrait.jpg";
 
 const Creators = () => {
   const creators = [
@@ -19,6 +20,15 @@ const Creators = () => {
         "Empresária, educadora e multigestora nos ramos de educação, logística e construção.",
         "Reconhecida por sua visão estratégica, liderança e amor por conectar pessoas e negócios.",
         "Casada, mãe dedicada e inspiradora por natureza.",
+      ],
+    },
+    {
+      name: "Sueli Rocha",
+      image: sueliImage,
+      bio: [
+        "Contadora e empresária com mais de 20 anos de experiência em gestão contábil e fiscal.",
+        "Especialista em estruturar controles financeiros e implementar inteligência fiscal que transformam a saúde das empresas.",
+        "Dedicada a levar clareza e segurança financeira para empreendedoras que querem crescer com solidez.",
       ],
     },
   ];
@@ -42,7 +52,7 @@ const Creators = () => {
           </div>
 
           {/* Creators Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
             {creators.map((creator, index) => (
               <div
                 key={index}
