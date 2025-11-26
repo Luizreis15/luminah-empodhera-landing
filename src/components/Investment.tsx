@@ -83,12 +83,12 @@ const Investment = () => {
                 <Button
                   size="lg"
                   className="w-full text-lg font-bold bg-foreground text-white hover:bg-foreground/90 hover:scale-105 transition-all duration-500 shadow-2xl"
-                  onClick={() => window.open("https://wa.me/5511999999999", "_blank")}
+                  onClick={() => window.open("https://pay.hub.la/VkKZ7stbqTlmOdSI5w7q", "_blank")}
                 >
                   Quero participar
                 </Button>
                 <p className="text-center text-sm text-muted-foreground mt-4">
-                  Clique para garantir sua vaga pelo WhatsApp
+                  Clique para garantir sua vaga
                 </p>
               </div>
             </div>
