@@ -7,6 +7,7 @@ import Investment from "@/components/Investment";
 import EventDetails from "@/components/EventDetails";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <EventDetails />
       <FinalCTA />
       <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 };
