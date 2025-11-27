@@ -1,7 +1,5 @@
 const FloatingWhatsApp = () => {
-  const phoneNumber = "5511980427797";
-  const message = "Olá! Gostaria de saber mais sobre o EMPODHERA.";
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = "https://api.whatsapp.com/send?phone=5511980427797";
 
   return (
     <a
