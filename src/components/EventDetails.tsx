@@ -10,7 +10,7 @@ const EventDetails = () => {
     {
       icon: Clock,
       label: "Horário",
-      value: "18h30 – 22h30",
+      value: "19h30",
     },
     {
       icon: MapPin,

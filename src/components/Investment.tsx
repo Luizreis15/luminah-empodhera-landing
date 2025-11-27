@@ -46,7 +46,7 @@ const Investment = () => {
                 </div>
                 <div className="flex items-center justify-center gap-2 text-muted-foreground">
                   <CreditCard className="w-5 h-5" />
-                  <p className="text-lg">Pagamento em até 3x sem juros</p>
+                  <p className="text-lg">Pagamento em até 4x sem juros</p>
                 </div>
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/20 rounded-full">
                   <span className="text-sm font-semibold text-gold">Vagas limitadas a 30 mulheres</span>

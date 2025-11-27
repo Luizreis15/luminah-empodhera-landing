@@ -82,7 +82,7 @@ const Venue = () => {
         <div className="text-center pt-8">
           <div className="inline-flex items-center gap-2 text-white text-lg drop-shadow-md">
             <MapPin className="w-5 h-5 text-gold" />
-            <span>Alameda Vieira de Carvalho, 70 - Centro, Santo André - SP</span>
+            <span>Av. Portugal, 1362 - Jardim Bela Vista</span>
           </div>
         </div>
       </div>
