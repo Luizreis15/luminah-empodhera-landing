@@ -17,7 +17,8 @@ export default function AdminLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { signIn, user, isAdmin, isLoading } = useAuth();
+  const [isSignUp, setIsSignUp] = useState(false);
+  const { signIn, signUp, user, isAdmin, isLoading } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -42,17 +43,37 @@ export default function AdminLogin() {
 
     setIsSubmitting(true);
     
-    const { error } = await signIn(email, password);
-    
-    if (error) {
-      toast({
-        title: 'Erro ao entrar',
-        description: error.message === 'Invalid login credentials' 
-          ? 'Email ou senha incorretos' 
-          : error.message,
-        variant: 'destructive',
-      });
-      setIsSubmitting(false);
+    if (isSignUp) {
+      const { error } = await signUp(email, password);
+      if (error) {
+        toast({
+          title: 'Erro ao criar conta',
+          description: error.message === 'User already registered'
+            ? 'Este email já está cadastrado'
+            : error.message,
+          variant: 'destructive',
+        });
+        setIsSubmitting(false);
+      } else {
+        toast({
+          title: 'Conta criada!',
+          description: 'Aguarde a aprovação de um administrador para acessar o painel.',
+        });
+        setIsSubmitting(false);
+        setIsSignUp(false);
+      }
+    } else {
+      const { error } = await signIn(email, password);
+      if (error) {
+        toast({
+          title: 'Erro ao entrar',
+          description: error.message === 'Invalid login credentials' 
+            ? 'Email ou senha incorretos' 
+            : error.message,
+          variant: 'destructive',
+        });
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -114,18 +135,27 @@ export default function AdminLogin() {
               {isSubmitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Entrando...
+                  {isSignUp ? 'Criando conta...' : 'Entrando...'}
                 </>
               ) : (
-                'Entrar'
+                isSignUp ? 'Criar Conta' : 'Entrar'
               )}
             </Button>
           </form>
 
-          <div className="mt-6 text-center">
-            <a href="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              ← Voltar ao site
-            </a>
+          <div className="mt-6 text-center space-y-2">
+            <button
+              type="button"
+              onClick={() => setIsSignUp(!isSignUp)}
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              {isSignUp ? 'Já tem conta? Fazer login' : 'Não tem conta? Criar conta'}
+            </button>
+            <div>
+              <a href="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                ← Voltar ao site
+              </a>
+            </div>
           </div>
         </div>
       </div>

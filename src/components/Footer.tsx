@@ -18,6 +18,12 @@ const Footer = () => {
           <div className="text-center text-background/70 text-sm space-y-2">
             <p>© 2025 EMPODHERA. Todos os direitos reservados.</p>
             <p>Evento idealizado por Samira Gouvêa, Simone Ribeiro e Sueli Rocha.</p>
+            <a 
+              href="/admin/login" 
+              className="inline-block mt-4 text-background/40 hover:text-background/60 transition-colors text-xs"
+            >
+              Área Restrita
+            </a>
           </div>
         </div>
       </div>
