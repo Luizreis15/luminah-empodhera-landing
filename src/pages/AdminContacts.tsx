@@ -81,15 +81,30 @@ export default function AdminContacts() {
       // Skip header if present
       const startIndex = lines[0].toLowerCase().includes('email') ? 1 : 0;
       
+      // Detect delimiter: semicolon or comma
+      const firstDataLine = lines[startIndex] || lines[0];
+      const delimiter = firstDataLine.includes(';') ? ';' : ',';
+      
       const newContacts: { email: string; name: string | null }[] = [];
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       
       for (let i = startIndex; i < lines.length; i++) {
-        const parts = lines[i].split(',').map(p => p.trim().replace(/"/g, ''));
-        const email = parts[0];
-        const name = parts[1] || null;
+        const parts = lines[i].split(delimiter).map(p => p.trim().replace(/"/g, ''));
         
-        if (email && emailRegex.test(email)) {
+        // Find the email in the parts (could be in any column)
+        let email = '';
+        let name: string | null = null;
+        
+        for (const part of parts) {
+          if (emailRegex.test(part)) {
+            email = part;
+          } else if (part && !part.match(/^[\d,\.E\+]+$/) && part.length > 1) {
+            // It's likely a name (not a number/phone)
+            name = part;
+          }
+        }
+        
+        if (email) {
           newContacts.push({ email: email.toLowerCase(), name });
         }
       }
