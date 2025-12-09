@@ -48,7 +48,7 @@ serve(async (req: Request): Promise<Response> => {
           method: "POST",
           headers: { "Authorization": `Bearer ${resendApiKey}`, "Content-Type": "application/json" },
           body: JSON.stringify({
-            from: "EMPODHERA <onboarding@resend.dev>",
+            from: "EMPODHERA <contato@empodhera.com>",
             to: [contact.email],
             subject: campaign.subject,
             html: personalizedHtml,
