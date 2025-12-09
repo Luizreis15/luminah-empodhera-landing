@@ -4,7 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
-import { Upload, Trash2, Search, Loader2, Download } from 'lucide-react';
+import { Upload, Trash2, Search, Loader2, Download, UserPlus } from 'lucide-react';
 import {
   Table,
   TableBody,
@@ -13,6 +13,14 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from '@/components/ui/dialog';
+import { Label } from '@/components/ui/label';
 
 interface Contact {
   id: string;
@@ -26,6 +34,10 @@ export default function AdminContacts() {
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [isUploading, setIsUploading] = useState(false);
+  const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
+  const [newContactEmail, setNewContactEmail] = useState('');
+  const [newContactName, setNewContactName] = useState('');
+  const [isAdding, setIsAdding] = useState(false);
   const { toast } = useToast();
 
   const fetchContacts = useCallback(async () => {
@@ -162,6 +174,45 @@ export default function AdminContacts() {
     }
   };
 
+  const handleAddContact = async () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(newContactEmail)) {
+      toast({
+        title: 'Email inválido',
+        description: 'Por favor, insira um email válido',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    setIsAdding(true);
+    try {
+      const { error } = await supabase
+        .from('contacts')
+        .upsert(
+          { email: newContactEmail.toLowerCase().trim(), name: newContactName.trim() || null },
+          { onConflict: 'email' }
+        );
+
+      if (error) throw error;
+
+      toast({ title: 'Contato adicionado com sucesso!' });
+      setNewContactEmail('');
+      setNewContactName('');
+      setIsAddDialogOpen(false);
+      fetchContacts();
+    } catch (error) {
+      console.error('Error adding contact:', error);
+      toast({
+        title: 'Erro ao adicionar contato',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsAdding(false);
+    }
+  };
+
   const exportCSV = () => {
     const csv = ['Email,Nome,Data de Cadastro'];
     contacts.forEach(c => {
@@ -192,7 +243,7 @@ export default function AdminContacts() {
               Exportar
             </Button>
             <label>
-              <Button asChild disabled={isUploading}>
+              <Button asChild disabled={isUploading} variant="outline">
                 <span className="cursor-pointer">
                   {isUploading ? (
                     <Loader2 className="h-4 w-4 mr-2 animate-spin" />
@@ -209,6 +260,10 @@ export default function AdminContacts() {
                 className="hidden"
               />
             </label>
+            <Button onClick={() => setIsAddDialogOpen(true)}>
+              <UserPlus className="h-4 w-4 mr-2" />
+              Adicionar
+            </Button>
           </div>
         </div>
 
@@ -277,6 +332,44 @@ export default function AdminContacts() {
             </Table>
           )}
         </div>
+
+        {/* Add Contact Dialog */}
+        <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Adicionar Contato</DialogTitle>
+            </DialogHeader>
+            <div className="space-y-4 py-4">
+              <div className="space-y-2">
+                <Label htmlFor="email">Email *</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="email@exemplo.com"
+                  value={newContactEmail}
+                  onChange={(e) => setNewContactEmail(e.target.value)}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="name">Nome (opcional)</Label>
+                <Input
+                  id="name"
+                  placeholder="Nome do contato"
+                  value={newContactName}
+                  onChange={(e) => setNewContactName(e.target.value)}
+                />
+              </div>
+            </div>
+            <DialogFooter>
+              <Button variant="outline" onClick={() => setIsAddDialogOpen(false)}>
+                Cancelar
+              </Button>
+              <Button onClick={handleAddContact} disabled={isAdding || !newContactEmail}>
+                {isAdding ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Adicionar'}
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </div>
     </AdminLayout>
   );
