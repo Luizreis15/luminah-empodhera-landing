@@ -5,7 +5,9 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
-import { Plus, Eye, Trash2, Send, Loader2 } from 'lucide-react';
+import { Plus, Eye, Trash2, Send, Loader2, CalendarClock } from 'lucide-react';
+import { format } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 import {
   Table,
   TableBody,
@@ -22,6 +24,7 @@ interface Campaign {
   status: string;
   created_at: string;
   sent_at: string | null;
+  scheduled_at: string | null;
 }
 
 export default function AdminCampaigns() {
@@ -38,7 +41,7 @@ export default function AdminCampaigns() {
     try {
       const { data, error } = await supabase
         .from('campaigns')
-        .select('id, title, subject, status, created_at, sent_at')
+        .select('id, title, subject, status, created_at, sent_at, scheduled_at')
         .order('created_at', { ascending: false });
       
       if (error) throw error;
@@ -102,15 +105,32 @@ export default function AdminCampaigns() {
     }
   };
 
-  const getStatusBadge = (status: string) => {
-    switch (status) {
+  const getStatusBadge = (campaign: Campaign) => {
+    switch (campaign.status) {
       case 'sent':
         return <Badge className="bg-green-500/10 text-green-600 border-green-500/20">Enviada</Badge>;
       case 'sending':
         return <Badge className="bg-blue-500/10 text-blue-600 border-blue-500/20">Enviando</Badge>;
+      case 'scheduled':
+        return (
+          <Badge className="bg-blue-500/10 text-blue-600 border-blue-500/20">
+            <CalendarClock className="h-3 w-3 mr-1" />
+            Agendada
+          </Badge>
+        );
       default:
         return <Badge className="bg-amber-500/10 text-amber-600 border-amber-500/20">Rascunho</Badge>;
     }
+  };
+
+  const getDateDisplay = (campaign: Campaign) => {
+    if (campaign.sent_at) {
+      return new Date(campaign.sent_at).toLocaleDateString('pt-BR');
+    }
+    if (campaign.scheduled_at) {
+      return format(new Date(campaign.scheduled_at), "dd/MM 'às' HH:mm", { locale: ptBR });
+    }
+    return new Date(campaign.created_at).toLocaleDateString('pt-BR');
   };
 
   return (
@@ -159,13 +179,8 @@ export default function AdminCampaigns() {
                   <TableRow key={campaign.id}>
                     <TableCell className="font-medium">{campaign.title}</TableCell>
                     <TableCell>{campaign.subject}</TableCell>
-                    <TableCell>{getStatusBadge(campaign.status)}</TableCell>
-                    <TableCell>
-                      {campaign.sent_at 
-                        ? new Date(campaign.sent_at).toLocaleDateString('pt-BR')
-                        : new Date(campaign.created_at).toLocaleDateString('pt-BR')
-                      }
-                    </TableCell>
+                    <TableCell>{getStatusBadge(campaign)}</TableCell>
+                    <TableCell>{getDateDisplay(campaign)}</TableCell>
                     <TableCell>
                       <div className="flex gap-1">
                         <Link to={`/admin/campaigns/${campaign.id}`}>
