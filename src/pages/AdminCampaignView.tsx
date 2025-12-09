@@ -4,8 +4,9 @@ import AdminLayout from '@/components/admin/AdminLayout';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
-import { ArrowLeft, Send, Loader2, CheckCircle, XCircle, Clock } from 'lucide-react';
+import { ArrowLeft, Send, Loader2, CheckCircle, XCircle, Clock, TestTube } from 'lucide-react';
 import {
   Table,
   TableBody,
@@ -14,6 +15,15 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 
 interface Campaign {
   id: string;
@@ -42,6 +52,9 @@ export default function AdminCampaignView() {
   const [logs, setLogs] = useState<EmailLog[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isSending, setIsSending] = useState(false);
+  const [isSendingTest, setIsSendingTest] = useState(false);
+  const [testEmail, setTestEmail] = useState('');
+  const [testDialogOpen, setTestDialogOpen] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -126,6 +139,44 @@ export default function AdminCampaignView() {
     }
   };
 
+  const handleSendTest = async () => {
+    if (!testEmail) {
+      toast({
+        title: 'Email obrigatório',
+        description: 'Informe um email para o teste',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    setIsSendingTest(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-test-email', {
+        body: { campaignId: id, testEmail }
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: 'Email de teste enviado!',
+        description: `Verifique a caixa de entrada de ${testEmail}`,
+      });
+
+      setTestDialogOpen(false);
+      setTestEmail('');
+    } catch (error) {
+      console.error('Error sending test email:', error);
+      toast({
+        title: 'Erro ao enviar teste',
+        description: error instanceof Error ? error.message : 'Tente novamente',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSendingTest(false);
+    }
+  };
+
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'sent':
@@ -160,16 +211,53 @@ export default function AdminCampaignView() {
             <h1 className="font-display text-3xl text-foreground">{campaign.title}</h1>
             <p className="text-muted-foreground mt-1">Assunto: {campaign.subject}</p>
           </div>
-          {campaign.status === 'draft' && (
-            <Button onClick={handleSend} disabled={isSending}>
-              {isSending ? (
-                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-              ) : (
-                <Send className="h-4 w-4 mr-2" />
-              )}
-              Enviar Campanha
-            </Button>
-          )}
+          <div className="flex gap-2">
+            <Dialog open={testDialogOpen} onOpenChange={setTestDialogOpen}>
+              <DialogTrigger asChild>
+                <Button variant="outline">
+                  <TestTube className="h-4 w-4 mr-2" />
+                  Enviar Teste
+                </Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Enviar Email de Teste</DialogTitle>
+                  <DialogDescription>
+                    Envie um email de teste para verificar como a campanha será exibida.
+                  </DialogDescription>
+                </DialogHeader>
+                <Input
+                  type="email"
+                  placeholder="seu@email.com"
+                  value={testEmail}
+                  onChange={(e) => setTestEmail(e.target.value)}
+                />
+                <DialogFooter>
+                  <Button variant="outline" onClick={() => setTestDialogOpen(false)}>
+                    Cancelar
+                  </Button>
+                  <Button onClick={handleSendTest} disabled={isSendingTest}>
+                    {isSendingTest ? (
+                      <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                    ) : (
+                      <Send className="h-4 w-4 mr-2" />
+                    )}
+                    Enviar Teste
+                  </Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+            {campaign.status === 'draft' && (
+              <Button onClick={handleSend} disabled={isSending}>
+                {isSending ? (
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                ) : (
+                  <Send className="h-4 w-4 mr-2" />
+                )}
+                Enviar Campanha
+              </Button>
+            )}
+          </div>
         </div>
 
         {/* Status */}
