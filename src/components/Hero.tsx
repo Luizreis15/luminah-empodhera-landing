@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Calendar, MapPin, Clock } from "lucide-react";
 import heroImage from "@/assets/hero-dining.jpg";
-import { WaitingListDialog } from "./WaitingListDialog";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -62,16 +61,15 @@ const Hero = () => {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
-            <WaitingListDialog>
-              <Button
-                variant="premium"
-                size="lg"
-                className="w-full sm:w-auto"
-              >
-                <Clock className="mr-2 h-4 w-4" />
-                Entrar na lista de espera
-              </Button>
-            </WaitingListDialog>
+            <Button
+              variant="premium"
+              size="lg"
+              onClick={() => scrollToSection("sucesso")}
+              className="w-full sm:w-auto"
+            >
+              <Clock className="mr-2 h-4 w-4" />
+              Entrar na lista de espera
+            </Button>
             <Button
               variant="elegant"
               size="lg"
