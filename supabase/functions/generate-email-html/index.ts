@@ -22,69 +22,78 @@ serve(async (req) => {
       throw new Error("O corpo do email é obrigatório");
     }
 
-    const systemPrompt = `Você é um designer de emails premium especializado em criar templates HTML para email marketing elegantes e responsivos.
+    const systemPrompt = `Você é um designer de emails premium especializado em criar templates HTML para email marketing ultra-elegantes e responsivos.
 
-IDENTIDADE VISUAL EMPODHERA:
-- Cor de fundo principal: #F6EFE8 (bege claro elegante)
-- Cor primária/dourado: #A67C52
-- Dourado hover: #C89F7A  
-- Dourado claro: #ECD9C4
-- Texto primário: #2C2420 (marrom escuro)
-- Texto secundário: #5C524C
-- Branco: #ffffff
-- Fundo do footer: #2C2420
+IDENTIDADE VISUAL EMPODHERA (Jantar Exclusivo para Mulheres Empreendedoras):
+- Fundo do body: #1A1A1A (preto sofisticado)
+- Container principal: gradiente de #2A2A2A para #1A1A1A com borda dourada
+- Cor primária/dourado: #D4AF37
+- Dourado secundário: #B8860B
+- Dourado claro para highlights: rgba(212, 175, 55, 0.1)
+- Texto principal: #FFFFFF
+- Texto secundário: #E5E5E5
+- Texto muted: #888888
+- Bordas e separadores: #333333
 
 TIPOGRAFIA:
-- Títulos: Georgia, serif (elegante, clássico)
-- Corpo: 'Helvetica Neue', Arial, sans-serif (limpo, legível)
+- Títulos: Georgia, serif (elegante, clássico) - cor dourada #D4AF37
+- Corpo: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif
+- Letter-spacing em títulos: 2px para EMPODHERA
 
-REGRAS:
-1. SEMPRE inclua {{nome}} na saudação (será substituído pelo nome do contato)
-2. Crie HTML responsivo que funcione em TODOS os clientes de email (Gmail, Outlook, Apple Mail)
-3. Use tabelas para layout (compatibilidade máxima com emails)
-4. Largura máxima do container: 600px
-5. Header com gradiente dourado e logo "EMPODHERA"
-6. Footer com fundo escuro e texto dourado
-7. Botão CTA com gradiente dourado, texto branco, border-radius suave
-8. Espaçamento generoso, linha de texto 1.8
-9. Retorne APENAS o código HTML completo, sem explicações
+ESTRUTURA OBRIGATÓRIA:
+1. HEADER sofisticado com:
+   - Logo "EMPODHERA" em dourado com letter-spacing
+   - Subtítulo "JANTAR EXCLUSIVO PARA MULHERES" em dourado secundário
+   
+2. CONTENT area com:
+   - Saudação personalizada "Olá, {{nome}}! ✨" 
+   - Conteúdo do email com parágrafos bem espaçados (line-height: 1.8)
+   - Destaques importantes em dourado
+   - Quote boxes com borda lateral dourada e fundo semi-transparente
 
-ESTRUTURA DO EMAIL:
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>CSS inline</style>
-</head>
-<body>
-  <div class="container">
-    <div class="header">EMPODHERA</div>
-    <div class="content">
-      <h2>Olá, {{nome}}!</h2>
-      [CONTEÚDO CONVERTIDO]
-      [BOTÃO CTA SE FORNECIDO]
-    </div>
-    <div class="footer">
-      EMPODHERA
-      Conectando mulheres, gerando negócios
-    </div>
-  </div>
-</body>
-</html>`;
+3. BOTÃO CTA (se fornecido):
+   - Background gradiente dourado (#D4AF37 para #B8860B)
+   - Texto branco, bold
+   - Border-radius 8px
+   - Padding generoso (16px 32px)
+   - Sombra sutil
 
-    const userPrompt = `Converta este conteúdo em um email HTML premium EMPODHERA:
+4. SIGNATURE:
+   - "Com carinho," em dourado secundário
+   - "Samira, Simone & Sueli" em dourado
+   - "Criadoras do EMPODHERA" em cinza
+
+5. FOOTER:
+   - Borda superior separadora
+   - Texto de unsubscribe discreto em cinza
+   - Link para remover da lista
+
+REGRAS TÉCNICAS:
+1. SEMPRE use {{nome}} na saudação (será substituído dinamicamente)
+2. Use TABELAS para layout (compatibilidade com Outlook, Gmail, Apple Mail)
+3. Largura máxima: 600px, centralizado
+4. TODOS os estilos devem ser INLINE (não use <style> tags)
+5. Imagens devem ter alt text
+6. Padding interno generoso: 40px nas laterais
+7. Retorne APENAS o código HTML completo, sem explicações ou markdown`;
+
+    const userPrompt = `Crie um email HTML ultra-premium EMPODHERA com este conteúdo:
 
 CORPO DO EMAIL:
 ${bodyText}
 
 ${ctaText && ctaLink ? `BOTÃO CTA:
 Texto: ${ctaText}
-Link: ${ctaLink}` : 'SEM BOTÃO CTA'}
+Link: ${ctaLink}` : 'SEM BOTÃO CTA - não inclua nenhum botão'}
 
-Retorne APENAS o código HTML completo.`;
+IMPORTANTE: 
+- Retorne APENAS o código HTML puro, sem \`\`\`html ou explicações
+- Todos os estilos INLINE
+- Use tabelas para layout
+- Saudação deve usar {{nome}}
+- Visual dark theme luxuoso com dourado`;
 
-    console.log("Generating email HTML with Lovable AI...");
+    console.log("Generating premium email HTML with Lovable AI...");
 
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",
