@@ -11,3 +11,6 @@ verify_jwt = true
 
 [functions.process-scheduled-campaigns]
 verify_jwt = false
+
+[functions.send-waiting-list-confirmation]
+verify_jwt = false

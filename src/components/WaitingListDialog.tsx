@@ -68,9 +68,23 @@ export function WaitingListDialog({ children }: WaitingListDialogProps) {
           throw error;
         }
       } else {
+        // Send confirmation email via edge function
+        try {
+          await supabase.functions.invoke("send-waiting-list-confirmation", {
+            body: {
+              name: result.data.name,
+              email: result.data.email,
+              phone: result.data.phone || null,
+            },
+          });
+        } catch (emailError) {
+          console.error("Error sending confirmation email:", emailError);
+          // Don't fail the signup if email fails
+        }
+
         toast({
           title: "Inscrição realizada!",
-          description: "Você foi adicionada à lista de espera. Entraremos em contato em breve!",
+          description: "Você foi adicionada à lista de espera. Verifique seu email!",
         });
         setFormData({ name: "", email: "", phone: "" });
         setOpen(false);
