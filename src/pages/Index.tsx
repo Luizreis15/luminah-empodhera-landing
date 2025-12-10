@@ -3,7 +3,7 @@ import Purpose from "@/components/Purpose";
 import Creators from "@/components/Creators";
 import Content from "@/components/Content";
 import Venue from "@/components/Venue";
-import Investment from "@/components/Investment";
+import SuccessSection from "@/components/SuccessSection";
 import EventDetails from "@/components/EventDetails";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
@@ -17,7 +17,7 @@ const Index = () => {
       <Creators />
       <Content />
       <Venue />
-      <Investment />
+      <SuccessSection />
       <EventDetails />
       <FinalCTA />
       <Footer />
