@@ -147,6 +147,8 @@ export type Database = {
           id: string
           name: string
           phone: string | null
+          subscribed_to_marketing: boolean | null
+          unsubscribed_at: string | null
         }
         Insert: {
           created_at?: string
@@ -154,6 +156,8 @@ export type Database = {
           id?: string
           name: string
           phone?: string | null
+          subscribed_to_marketing?: boolean | null
+          unsubscribed_at?: string | null
         }
         Update: {
           created_at?: string
@@ -161,6 +165,8 @@ export type Database = {
           id?: string
           name?: string
           phone?: string | null
+          subscribed_to_marketing?: boolean | null
+          unsubscribed_at?: string | null
         }
         Relationships: []
       }
