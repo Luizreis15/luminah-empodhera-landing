@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Sparkles } from "lucide-react";
+import { Clock } from "lucide-react";
+import { WaitingListDialog } from "./WaitingListDialog";
 
 const FinalCTA = () => {
   return (
@@ -27,14 +28,26 @@ const FinalCTA = () => {
             O EMPODHERA é o seu ponto de partida para uma nova história de sucesso.
           </p>
 
-          <div className="space-y-4 pt-6">
-            <Button
-              size="lg"
-              className="w-full sm:w-auto bg-foreground hover:bg-foreground/90 text-white px-6 sm:px-10 md:px-12 py-4 md:py-6 text-sm sm:text-base md:text-lg font-bold rounded-full shadow-2xl hover:shadow-elegant transition-all duration-500 hover:scale-110"
-              onClick={() => window.open('https://pay.hub.la/VkKZ7stbqTlmOdSI5w7q', '_blank')}
-            >
-              Quero participar do EMPODHERA
-            </Button>
+          {/* Sold Out Badge */}
+          <div className="flex justify-center pb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/20 rounded-full border border-primary-foreground/30">
+              <Clock className="w-4 h-4 text-primary-foreground" />
+              <span className="text-sm font-bold text-primary-foreground uppercase tracking-wider">
+                Vagas Esgotadas
+              </span>
+            </div>
+          </div>
+
+          <div className="space-y-4 pt-2">
+            <WaitingListDialog>
+              <Button
+                size="lg"
+                className="w-full sm:w-auto bg-foreground hover:bg-foreground/90 text-white px-6 sm:px-10 md:px-12 py-4 md:py-6 text-sm sm:text-base md:text-lg font-bold rounded-full shadow-2xl hover:shadow-elegant transition-all duration-500 hover:scale-110"
+              >
+                <Clock className="mr-2 h-5 w-5" />
+                Entrar na lista de espera
+              </Button>
+            </WaitingListDialog>
             
             <p className="text-sm text-primary-foreground/80">
               "Evento idealizado por Samira Gouvêa, Simone Ribeiro e Sueli Rocha"

@@ -10,7 +10,8 @@ import {
   LogOut, 
   Loader2,
   Menu,
-  X 
+  X,
+  Clock
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -21,6 +22,7 @@ interface AdminLayoutProps {
 const navItems = [
   { icon: LayoutDashboard, label: 'Dashboard', path: '/admin' },
   { icon: Users, label: 'Contatos', path: '/admin/contacts' },
+  { icon: Clock, label: 'Lista de Espera', path: '/admin/waiting-list' },
   { icon: Mail, label: 'Campanhas', path: '/admin/campaigns' },
   { icon: Plus, label: 'Nova Campanha', path: '/admin/campaigns/new' },
 ];

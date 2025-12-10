@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Calendar, MapPin } from "lucide-react";
+import { Calendar, MapPin, Clock } from "lucide-react";
 import heroImage from "@/assets/hero-dining.jpg";
+import { WaitingListDialog } from "./WaitingListDialog";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -49,16 +50,28 @@ const Hero = () => {
             </div>
           </div>
 
+          {/* Sold Out Badge */}
+          <div className="flex justify-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-destructive/20 rounded-full border border-destructive/30">
+              <Clock className="w-4 h-4 text-destructive" />
+              <span className="text-sm font-bold text-destructive uppercase tracking-wider">
+                Vagas Esgotadas
+              </span>
+            </div>
+          </div>
+
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
-            <Button
-              variant="premium"
-              size="lg"
-              onClick={() => scrollToSection("investimento")}
-              className="w-full sm:w-auto"
-            >
-              Garanta sua vaga agora
-            </Button>
+            <WaitingListDialog>
+              <Button
+                variant="premium"
+                size="lg"
+                className="w-full sm:w-auto"
+              >
+                <Clock className="mr-2 h-4 w-4" />
+                Entrar na lista de espera
+              </Button>
+            </WaitingListDialog>
             <Button
               variant="elegant"
               size="lg"

@@ -12,6 +12,7 @@ import AdminContacts from "./pages/AdminContacts";
 import AdminCampaigns from "./pages/AdminCampaigns";
 import AdminCampaignNew from "./pages/AdminCampaignNew";
 import AdminCampaignView from "./pages/AdminCampaignView";
+import AdminWaitingList from "./pages/AdminWaitingList";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/admin/campaigns" element={<AdminCampaigns />} />
             <Route path="/admin/campaigns/new" element={<AdminCampaignNew />} />
             <Route path="/admin/campaigns/:id" element={<AdminCampaignView />} />
+            <Route path="/admin/waiting-list" element={<AdminWaitingList />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>

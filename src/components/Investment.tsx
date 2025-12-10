@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Check, CreditCard } from "lucide-react";
+import { Check, Clock } from "lucide-react";
+import { WaitingListDialog } from "./WaitingListDialog";
 
 const Investment = () => {
   const benefits = [
@@ -34,6 +35,16 @@ const Investment = () => {
           {/* Pricing Card */}
           <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 animate-scale-in border-4 border-primary-foreground/20 hover:border-primary-foreground/40 transition-all duration-500 hover:scale-105">
             <div className="space-y-8">
+              {/* Sold Out Badge */}
+              <div className="text-center">
+                <div className="inline-flex items-center gap-2 px-6 py-3 bg-destructive/10 rounded-full border-2 border-destructive/30">
+                  <Clock className="w-5 h-5 text-destructive" />
+                  <span className="text-lg font-bold text-destructive uppercase tracking-wider">
+                    Vagas Esgotadas
+                  </span>
+                </div>
+              </div>
+
               {/* Price */}
               <div className="text-center space-y-4">
                 <div className="inline-block px-6 py-2 bg-gold/10 rounded-full mb-2">
@@ -43,13 +54,6 @@ const Investment = () => {
                   <span>R$</span>
                   <span className="font-bold text-gold">350</span>
                   <span className="text-3xl">,00</span>
-                </div>
-                <div className="flex items-center justify-center gap-2 text-muted-foreground">
-                  <CreditCard className="w-5 h-5" />
-                  <p className="text-lg">Pagamento em até 4x sem juros</p>
-                </div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/20 rounded-full">
-                  <span className="text-sm font-semibold text-gold">Vagas limitadas a 30 mulheres</span>
                 </div>
               </div>
 
@@ -80,15 +84,17 @@ const Investment = () => {
 
               {/* CTA */}
               <div className="pt-6">
-                <Button
-                  size="lg"
-                  className="w-full text-lg font-bold bg-foreground text-white hover:bg-foreground/90 hover:scale-105 transition-all duration-500 shadow-2xl"
-                  onClick={() => window.open("https://pay.hub.la/VkKZ7stbqTlmOdSI5w7q", "_blank")}
-                >
-                  Quero participar
-                </Button>
+                <WaitingListDialog>
+                  <Button
+                    size="lg"
+                    className="w-full text-lg font-bold bg-foreground text-white hover:bg-foreground/90 hover:scale-105 transition-all duration-500 shadow-2xl"
+                  >
+                    <Clock className="mr-2 h-5 w-5" />
+                    Entrar na lista de espera
+                  </Button>
+                </WaitingListDialog>
                 <p className="text-center text-sm text-muted-foreground mt-4">
-                  Clique para garantir sua vaga
+                  Seja notificada sobre novas vagas
                 </p>
               </div>
             </div>
