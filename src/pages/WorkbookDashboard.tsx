@@ -94,6 +94,5 @@ export default function WorkbookDashboard() {
           </div>
         </main>
       </div>
-    </>
   );
 }
