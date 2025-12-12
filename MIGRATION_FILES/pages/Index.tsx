@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
 import { useWorkbookAuth } from '@/hooks/useWorkbook';
-import { Loader2, Eye, EyeOff, ArrowLeft } from 'lucide-react';
+import { Loader2, Eye, EyeOff } from 'lucide-react';
 
 const loginSchema = z.object({
   email: z.string().email('Email inválido'),
@@ -29,7 +29,7 @@ const signupSchema = z.object({
 type LoginFormData = z.infer<typeof loginSchema>;
 type SignupFormData = z.infer<typeof signupSchema>;
 
-export default function WorkbookLogin() {
+export default function Index() {
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -40,7 +40,7 @@ export default function WorkbookLogin() {
   // Redirect if already logged in
   useEffect(() => {
     if (!authLoading && user) {
-      navigate('/caderno');
+      navigate('/dashboard');
     }
   }, [user, authLoading, navigate]);
 
@@ -69,7 +69,7 @@ export default function WorkbookLogin() {
         title: "Bem-vinda de volta! ✨",
         description: "Vamos continuar sua jornada",
       });
-      navigate('/caderno');
+      navigate('/dashboard');
     }
     setIsLoading(false);
   };
@@ -93,7 +93,7 @@ export default function WorkbookLogin() {
         title: "Conta criada com sucesso! 🎉",
         description: "Seja bem-vinda ao Caderno de Atividades EMPODHERA",
       });
-      navigate('/caderno');
+      navigate('/dashboard');
     }
     setIsLoading(false);
   };
@@ -108,17 +108,6 @@ export default function WorkbookLogin() {
 
   return (
     <div className="min-h-screen bg-background pattern-dots">
-      {/* Back to site link */}
-      <div className="absolute top-4 left-4">
-        <Link 
-          to="/" 
-          className="flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors"
-        >
-          <ArrowLeft size={18} />
-          <span className="text-sm">Voltar ao site</span>
-        </Link>
-      </div>
-
       <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12">
         {/* Logo */}
         <div className="text-center mb-8 animate-fade-in">

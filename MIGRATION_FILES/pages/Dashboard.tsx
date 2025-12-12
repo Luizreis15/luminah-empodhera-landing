@@ -7,7 +7,7 @@ import { ProgressBar } from '@/components/workbook/ProgressBar';
 import { useWorkbookAuth, useWorkbookProgress } from '@/hooks/useWorkbook';
 import { workbookModules } from '@/data/workbookModules';
 
-export default function WorkbookDashboard() {
+export default function Dashboard() {
   const navigate = useNavigate();
   const { user, isLoading: authLoading } = useWorkbookAuth();
   const { progress, totalProgress, isLoading: progressLoading } = useWorkbookProgress();
@@ -15,7 +15,7 @@ export default function WorkbookDashboard() {
   // Redirect if not logged in
   useEffect(() => {
     if (!authLoading && !user) {
-      navigate('/caderno/login');
+      navigate('/login');
     }
   }, [user, authLoading, navigate]);
 

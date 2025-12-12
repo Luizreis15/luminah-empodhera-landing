@@ -13,7 +13,7 @@ export function ModuleCard({ moduleId, title, subtitle, progress }: ModuleCardPr
 
   return (
     <Link
-      to={`/caderno/modulo/${moduleId}`}
+      to={`/modulo/${moduleId}`}
       className="group block"
     >
       <div className="relative bg-card rounded-lg border border-gold/20 p-6 shadow-soft hover:shadow-elegant transition-all duration-300 hover:border-gold/40 overflow-hidden">

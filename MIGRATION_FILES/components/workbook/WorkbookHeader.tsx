@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { LogOut, BookOpen, Home } from "lucide-react";
+import { LogOut, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useWorkbookAuth } from "@/hooks/useWorkbook";
 
@@ -13,7 +13,7 @@ export function WorkbookHeader({ showNav = true }: WorkbookHeaderProps) {
 
   const handleSignOut = async () => {
     await signOut();
-    navigate('/caderno/login');
+    navigate('/login');
   };
 
   return (
@@ -21,7 +21,7 @@ export function WorkbookHeader({ showNav = true }: WorkbookHeaderProps) {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/caderno" className="flex items-center gap-2">
+          <Link to="/dashboard" className="flex items-center gap-2">
             <span className="text-3xl font-display text-gold tracking-wide">
               EMPODHERA
             </span>
@@ -31,18 +31,11 @@ export function WorkbookHeader({ showNav = true }: WorkbookHeaderProps) {
           {showNav && user && (
             <nav className="hidden md:flex items-center gap-6">
               <Link 
-                to="/caderno" 
+                to="/dashboard" 
                 className="flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors"
               >
                 <BookOpen size={18} />
                 <span>Caderno</span>
-              </Link>
-              <Link 
-                to="/" 
-                className="flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors"
-              >
-                <Home size={18} />
-                <span>Site</span>
               </Link>
             </nav>
           )}

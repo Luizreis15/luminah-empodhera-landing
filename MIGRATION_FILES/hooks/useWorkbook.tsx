@@ -42,7 +42,7 @@ export function useWorkbookAuth(): WorkbookAuthContextType {
   };
 
   const signUp = async (email: string, password: string, name: string, phone?: string) => {
-    const redirectUrl = `${window.location.origin}/caderno`;
+    const redirectUrl = `${window.location.origin}/dashboard`;
     
     const { data, error } = await supabase.auth.signUp({
       email,
@@ -54,28 +54,6 @@ export function useWorkbookAuth(): WorkbookAuthContextType {
     });
 
     if (!error && data.user) {
-      // Copy to contacts table for marketing
-      try {
-        await supabase.from('contacts').insert({
-          email,
-          name,
-        });
-      } catch (e) {
-        console.log('Contact may already exist:', e);
-      }
-
-      // Also add to waiting list if not exists
-      try {
-        await supabase.from('waiting_list').insert({
-          email,
-          name,
-          phone: phone || null,
-          subscribed_to_marketing: true
-        });
-      } catch (e) {
-        console.log('Already in waiting list:', e);
-      }
-
       // Send welcome email
       try {
         await supabase.functions.invoke('send-workbook-welcome', {
