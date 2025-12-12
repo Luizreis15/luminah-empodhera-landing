@@ -1,8 +1,9 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -17,6 +18,23 @@ import WorkbookLogin from "./pages/WorkbookLogin";
 import WorkbookDashboard from "./pages/WorkbookDashboard";
 import WorkbookModule from "./pages/WorkbookModule";
 
+// Component to handle subdomain redirect for atividades.empodhera.com
+const SubdomainRedirect = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const hostname = window.location.hostname;
+    
+    // If accessing atividades.empodhera.com at root, redirect to workbook
+    if (hostname === 'atividades.empodhera.com' && location.pathname === '/') {
+      navigate('/caderno/login', { replace: true });
+    }
+  }, [location.pathname, navigate]);
+
+  return null;
+};
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -26,6 +44,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <AuthProvider>
+          <SubdomainRedirect />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/caderno/login" element={<WorkbookLogin />} />
