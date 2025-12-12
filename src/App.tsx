@@ -46,7 +46,14 @@ const App = () => (
         <AuthProvider>
           <SubdomainRedirect />
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route 
+              path="/" 
+              element={
+                window.location.hostname === 'atividades.empodhera.com' 
+                  ? <WorkbookLogin /> 
+                  : <Index />
+              } 
+            />
             <Route path="/caderno/login" element={<WorkbookLogin />} />
             <Route path="/caderno" element={<WorkbookDashboard />} />
             <Route path="/caderno/modulo/:moduleId" element={<WorkbookModule />} />
