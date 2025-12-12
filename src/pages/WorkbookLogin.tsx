@@ -37,6 +37,11 @@ export default function WorkbookLogin() {
   const { toast } = useToast();
   const { user, isLoading: authLoading, signIn, signUp } = useWorkbookAuth();
 
+  // Debug log on mount
+  useEffect(() => {
+    console.log('[WorkbookLogin] Component mounted - JavaScript is working');
+  }, []);
+
   // Redirect if already logged in
   useEffect(() => {
     if (!authLoading && user) {
@@ -212,130 +217,132 @@ export default function WorkbookLogin() {
               </form>
             </Form>
           ) : (
-            /* Signup Form */
-            <Form {...signupForm}>
-              <form onSubmit={signupForm.handleSubmit(handleSignup)} className="space-y-4">
-                <FormField
-                  control={signupForm.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-foreground">Nome completo</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="Seu nome" 
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+            /* Signup Form - Using native inputs to avoid Slot issues */
+            <form onSubmit={signupForm.handleSubmit(handleSignup)} className="space-y-4">
+              <div className="space-y-2">
+                <label htmlFor="signup-name" className="text-sm font-medium text-foreground">
+                  Nome completo
+                </label>
+                <input
+                  id="signup-name"
+                  type="text"
+                  placeholder="Seu nome"
+                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                  value={signupForm.watch('name')}
+                  onChange={(e) => {
+                    console.log('[Signup] Name changed:', e.target.value);
+                    signupForm.setValue('name', e.target.value);
+                  }}
                 />
+                {signupForm.formState.errors.name && (
+                  <p className="text-sm font-medium text-destructive">
+                    {signupForm.formState.errors.name.message}
+                  </p>
+                )}
+              </div>
 
-                <FormField
-                  control={signupForm.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-foreground">Email</FormLabel>
-                      <FormControl>
-                        <Input 
-                          type="email" 
-                          placeholder="seu@email.com" 
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+              <div className="space-y-2">
+                <label htmlFor="signup-email" className="text-sm font-medium text-foreground">
+                  Email
+                </label>
+                <input
+                  id="signup-email"
+                  type="email"
+                  placeholder="seu@email.com"
+                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                  value={signupForm.watch('email')}
+                  onChange={(e) => {
+                    console.log('[Signup] Email changed:', e.target.value);
+                    signupForm.setValue('email', e.target.value);
+                  }}
                 />
+                {signupForm.formState.errors.email && (
+                  <p className="text-sm font-medium text-destructive">
+                    {signupForm.formState.errors.email.message}
+                  </p>
+                )}
+              </div>
 
-                <FormField
-                  control={signupForm.control}
-                  name="phone"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-foreground">
-                        WhatsApp <span className="text-muted-foreground">(opcional)</span>
-                      </FormLabel>
-                      <FormControl>
-                        <Input 
-                          type="tel" 
-                          placeholder="(11) 99999-9999" 
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+              <div className="space-y-2">
+                <label htmlFor="signup-phone" className="text-sm font-medium text-foreground">
+                  WhatsApp <span className="text-muted-foreground">(opcional)</span>
+                </label>
+                <input
+                  id="signup-phone"
+                  type="tel"
+                  placeholder="(11) 99999-9999"
+                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                  value={signupForm.watch('phone')}
+                  onChange={(e) => signupForm.setValue('phone', e.target.value)}
                 />
+              </div>
 
-                <FormField
-                  control={signupForm.control}
-                  name="password"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-foreground">Senha</FormLabel>
-                      <FormControl>
-                        <div className="relative">
-                          <Input 
-                            type={showPassword ? 'text' : 'password'} 
-                            placeholder="Mínimo 6 caracteres"
-                            className="pr-10"
-                            {...field} 
-                          />
-                          <button
-                            type="button"
-                            onClick={() => setShowPassword(!showPassword)}
-                            className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-                          >
-                            {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-                          </button>
-                        </div>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+              <div className="space-y-2">
+                <label htmlFor="signup-password" className="text-sm font-medium text-foreground">
+                  Senha
+                </label>
+                <div className="relative">
+                  <input
+                    id="signup-password"
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder="Mínimo 6 caracteres"
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 pr-10 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                    value={signupForm.watch('password')}
+                    onChange={(e) => signupForm.setValue('password', e.target.value)}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                  >
+                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  </button>
+                </div>
+                {signupForm.formState.errors.password && (
+                  <p className="text-sm font-medium text-destructive">
+                    {signupForm.formState.errors.password.message}
+                  </p>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="signup-confirm" className="text-sm font-medium text-foreground">
+                  Confirmar senha
+                </label>
+                <input
+                  id="signup-confirm"
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Repita a senha"
+                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                  value={signupForm.watch('confirmPassword')}
+                  onChange={(e) => signupForm.setValue('confirmPassword', e.target.value)}
                 />
+                {signupForm.formState.errors.confirmPassword && (
+                  <p className="text-sm font-medium text-destructive">
+                    {signupForm.formState.errors.confirmPassword.message}
+                  </p>
+                )}
+              </div>
 
-                <FormField
-                  control={signupForm.control}
-                  name="confirmPassword"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-foreground">Confirmar senha</FormLabel>
-                      <FormControl>
-                        <Input 
-                          type={showPassword ? 'text' : 'password'} 
-                          placeholder="Repita a senha"
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+              <Button 
+                type="submit" 
+                className="w-full bg-gradient-gold hover:opacity-90 text-white font-medium py-5 mt-2"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Criando conta...
+                  </>
+                ) : (
+                  'Criar minha conta'
+                )}
+              </Button>
 
-                <Button 
-                  type="submit" 
-                  className="w-full bg-gradient-gold hover:opacity-90 text-white font-medium py-5 mt-2"
-                  disabled={isLoading}
-                >
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Criando conta...
-                    </>
-                  ) : (
-                    'Criar minha conta'
-                  )}
-                </Button>
-
-                <p className="text-xs text-center text-muted-foreground mt-4">
-                  Ao criar sua conta, você concorda em receber comunicações do EMPODHERA.
-                </p>
-              </form>
-            </Form>
+              <p className="text-xs text-center text-muted-foreground mt-4">
+                Ao criar sua conta, você concorda em receber comunicações do EMPODHERA.
+              </p>
+            </form>
           )}
         </div>
 
