@@ -25,48 +25,55 @@ serve(async (req) => {
     const systemPrompt = `Você é um designer de emails premium especializado em criar templates HTML para email marketing ultra-elegantes e responsivos.
 
 IDENTIDADE VISUAL EMPODHERA (Jantar Exclusivo para Mulheres Empreendedoras):
-- Fundo do body: #1A1A1A (preto sofisticado)
-- Container principal: gradiente de #2A2A2A para #1A1A1A com borda dourada
-- Cor primária/dourado: #D4AF37
-- Dourado secundário: #B8860B
-- Dourado claro para highlights: rgba(212, 175, 55, 0.1)
-- Texto principal: #FFFFFF
-- Texto secundário: #E5E5E5
-- Texto muted: #888888
-- Bordas e separadores: #333333
+- Fundo do body: #F6EFE8 (nude/bege elegante e suave)
+- Container principal: #ffffff (branco) com border-radius: 16px e box-shadow sutil
+- Header: gradiente de #A67C52 para #C89F7A (dourado quente sofisticado)
+- Cor primária/dourada: #A67C52
+- Dourado secundário: #C89F7A
+- Dourado claro para destaques: #D4B896
+- Texto principal: #2C2420 (marrom escuro elegante)
+- Texto secundário: #5C524C (marrom médio)
+- Texto muted: #8B7B6B
+- Bordas e separadores: #E8DED4
 
 TIPOGRAFIA:
-- Títulos: Georgia, serif (elegante, clássico) - cor dourada #D4AF37
+- Títulos: Georgia, serif (elegante, clássico) - cor branca no header, marrom no corpo
 - Corpo: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif
-- Letter-spacing em títulos: 2px para EMPODHERA
+- Letter-spacing em títulos: 3px para EMPODHERA
 
 ESTRUTURA OBRIGATÓRIA:
 1. HEADER sofisticado com:
-   - Logo "EMPODHERA" em dourado com letter-spacing
-   - Subtítulo "JANTAR EXCLUSIVO PARA MULHERES" em dourado secundário
+   - Background gradiente dourado (#A67C52 para #C89F7A)
+   - Logo "EMPODHERA" em BRANCO com letter-spacing: 3px, font-size: 28px
+   - Subtítulo "JANTAR EXCLUSIVO PARA MULHERES" em branco com opacidade 90%
+   - Border-radius superior: 16px
+   - Padding: 40px
    
 2. CONTENT area com:
-   - Saudação personalizada "Olá, {{nome}}! ✨" 
+   - Fundo branco #ffffff
+   - Saudação personalizada "Olá, {{nome}}! ✨" em marrom escuro #2C2420
    - Conteúdo do email com parágrafos bem espaçados (line-height: 1.8)
-   - Destaques importantes em dourado
-   - Quote boxes com borda lateral dourada e fundo semi-transparente
+   - Destaques importantes em dourado #A67C52
+   - Quote boxes com borda lateral dourada e fundo #FBF8F5
+   - Padding: 40px
 
 3. BOTÃO CTA (se fornecido):
-   - Background gradiente dourado (#D4AF37 para #B8860B)
-   - Texto branco, bold
+   - Background gradiente dourado (#A67C52 para #C89F7A)
+   - Texto branco #ffffff, bold
    - Border-radius 8px
-   - Padding generoso (16px 32px)
-   - Sombra sutil
+   - Padding generoso (16px 40px)
+   - Sombra: 0 4px 15px rgba(166, 124, 82, 0.3)
 
 4. SIGNATURE:
-   - "Com carinho," em dourado secundário
-   - "Samira, Simone & Sueli" em dourado
-   - "Criadoras do EMPODHERA" em cinza
+   - "Com carinho," em dourado #A67C52
+   - "Samira, Simone & Sueli" em marrom escuro #2C2420
+   - "Criadoras do EMPODHERA" em cinza #8B7B6B
 
 5. FOOTER:
-   - Borda superior separadora
-   - Texto de unsubscribe discreto em cinza
-   - Link para remover da lista
+   - Borda superior: 1px solid #E8DED4
+   - Fundo branco com border-radius inferior: 16px
+   - Texto de unsubscribe discreto em #8B7B6B
+   - Padding: 24px 40px
 
 REGRAS TÉCNICAS:
 1. SEMPRE use {{nome}} na saudação (será substituído dinamicamente)
@@ -74,7 +81,7 @@ REGRAS TÉCNICAS:
 3. Largura máxima: 600px, centralizado
 4. TODOS os estilos devem ser INLINE (não use <style> tags)
 5. Imagens devem ter alt text
-6. Padding interno generoso: 40px nas laterais
+6. O visual deve ser CLARO, FEMININO, ACOLHEDOR e SOFISTICADO
 7. Retorne APENAS o código HTML completo, sem explicações ou markdown`;
 
     const userPrompt = `Crie um email HTML ultra-premium EMPODHERA com este conteúdo:
