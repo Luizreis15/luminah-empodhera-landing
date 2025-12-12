@@ -11,43 +11,44 @@
     /* Nude & Warm Palette */
     --background: 30 25% 95%; /* #F6EFE8 */
     --background-secondary: 30 20% 92%; /* #EFE6DE */
-    --foreground: 0 0% 5.5%; /* #0E0E0E */
+    --foreground: 0 0% 10%; /* Darker for better contrast */
 
-    /* Gold Accents */
-    --gold: 30 35% 55%; /* #A67C52 */
-    --gold-hover: 30 40% 65%; /* #C89F7A */
+    /* Gold Accents - Darker for better contrast */
+    --gold: 30 45% 38%; /* Darker gold for better readability */
+    --gold-hover: 30 40% 45%;
     --gold-light: 30 50% 88%;
+    --gold-dark: 30 50% 30%; /* For critical titles */
     
     /* Semantic Tokens */
-    --primary: 30 35% 55%; /* Gold */
+    --primary: 30 45% 38%; /* Gold */
     --primary-foreground: 0 0% 100%;
     
     --secondary: 30 20% 92%;
-    --secondary-foreground: 0 0% 5.5%;
+    --secondary-foreground: 0 0% 10%;
     
-    --accent: 30 35% 55%;
+    --accent: 30 45% 38%;
     --accent-foreground: 0 0% 100%;
     
     --muted: 30 15% 90%;
-    --muted-foreground: 0 0% 40%;
+    --muted-foreground: 0 0% 25%; /* Much darker for better readability */
     
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 5.5%;
+    --card-foreground: 0 0% 10%;
     
-    --border: 30 15% 85%; /* #E4D9CF */
-    --input: 30 15% 85%;
-    --ring: 30 35% 55%;
+    --border: 30 15% 80%; /* Slightly darker border */
+    --input: 30 15% 80%;
+    --ring: 30 45% 38%;
     
-    --destructive: 0 70% 50%;
+    --destructive: 0 70% 45%;
     --destructive-foreground: 0 0% 100%;
     
     --radius: 0.75rem;
     
     /* Custom Design Tokens */
-    --gradient-gold: linear-gradient(135deg, hsl(30 35% 55%), hsl(30 40% 65%));
+    --gradient-gold: linear-gradient(135deg, hsl(30 45% 38%), hsl(30 40% 45%));
     --gradient-nude: linear-gradient(180deg, hsl(30 25% 95%), hsl(30 20% 92%));
-    --shadow-elegant: 0 10px 40px -10px hsl(30 35% 55% / 0.15);
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.08);
+    --shadow-elegant: 0 10px 40px -10px hsl(30 45% 38% / 0.2);
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.1);
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }

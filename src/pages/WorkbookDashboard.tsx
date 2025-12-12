@@ -39,9 +39,9 @@ export default function WorkbookDashboard() {
           {/* Welcome Section */}
           <div className="text-center mb-10 animate-fade-in">
             <h1 className="text-3xl md:text-4xl font-display text-foreground mb-2">
-              Olá, <span className="text-gold">{userName}</span>! ✨
+              Olá, <span className="text-primary font-medium">{userName}</span>! ✨
             </h1>
-            <p className="text-muted-foreground">
+            <p className="text-foreground/70">
               Continue sua jornada de empoderamento
             </p>
           </div>
@@ -84,11 +84,11 @@ export default function WorkbookDashboard() {
           </div>
 
           {/* Motivational Footer */}
-          <div className="mt-12 text-center py-8 border-t border-gold/10">
-            <p className="font-display text-lg text-gold italic">
+          <div className="mt-12 text-center py-8 border-t border-border">
+            <p className="font-display text-lg text-foreground/80 italic">
               "Cada resposta que você escreve é um passo em direção à sua melhor versão."
             </p>
-            <p className="text-sm text-muted-foreground mt-2">
+            <p className="text-sm text-foreground/60 mt-2">
               — Equipe EMPODHERA
             </p>
           </div>

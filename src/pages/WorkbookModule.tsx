@@ -126,14 +126,14 @@ export default function WorkbookModule() {
           {/* Module Header */}
           <div className="mb-8 animate-fade-in">
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold font-display text-lg">
+              <span className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center text-primary font-display text-lg font-medium">
                 {module.id}
               </span>
               <div>
                 <h1 className="text-2xl md:text-3xl font-display text-foreground">
                   {module.title}
                 </h1>
-                <p className="text-muted-foreground">{module.subtitle}</p>
+                <p className="text-foreground/70">{module.subtitle}</p>
               </div>
             </div>
           </div>
@@ -152,11 +152,11 @@ export default function WorkbookModule() {
               className="mb-10 bg-card rounded-xl border border-gold/20 p-6 shadow-soft animate-fade-in"
               style={{ animationDelay: `${(sectionIndex + 1) * 100}ms` }}
             >
-              <h2 className="font-display text-xl text-gold mb-2">
+              <h2 className="font-display text-xl text-foreground mb-2">
                 {section.title}
               </h2>
               {section.description && (
-                <p className="text-muted-foreground text-sm mb-6">
+                <p className="text-foreground/70 text-sm mb-6">
                   {section.description}
                 </p>
               )}

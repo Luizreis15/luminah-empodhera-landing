@@ -22,7 +22,7 @@ export function WorkbookHeader({ showNav = true }: WorkbookHeaderProps) {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/caderno/dashboard" className="flex items-center gap-2">
-            <span className="text-3xl font-display text-gold tracking-wide">
+            <span className="text-3xl font-display text-foreground font-medium tracking-wide">
               EMPODHERA
             </span>
           </Link>
@@ -32,7 +32,7 @@ export function WorkbookHeader({ showNav = true }: WorkbookHeaderProps) {
             <nav className="hidden md:flex items-center gap-6">
               <Link 
                 to="/caderno/dashboard" 
-                className="flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors"
+                className="flex items-center gap-2 text-foreground/70 hover:text-primary transition-colors"
               >
                 <BookOpen size={18} />
                 <span>Caderno</span>
@@ -43,14 +43,14 @@ export function WorkbookHeader({ showNav = true }: WorkbookHeaderProps) {
           {/* User Menu */}
           {user && (
             <div className="flex items-center gap-4">
-              <span className="text-sm text-muted-foreground hidden sm:inline">
+              <span className="text-sm text-foreground/70 hidden sm:inline">
                 {user.user_metadata?.name || user.email}
               </span>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={handleSignOut}
-                className="text-muted-foreground hover:text-gold"
+                className="text-foreground/70 hover:text-primary"
               >
                 <LogOut size={18} />
                 <span className="ml-2 hidden sm:inline">Sair</span>
