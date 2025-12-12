@@ -18,16 +18,16 @@ export function ModuleCard({ moduleId, title, subtitle, progress }: ModuleCardPr
     >
       <div className="relative bg-card rounded-lg border border-gold/20 p-6 shadow-soft hover:shadow-elegant transition-all duration-300 hover:border-gold/40 overflow-hidden">
         {/* Module number badge */}
-        <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
-          <span className="text-gold font-display text-lg">{moduleId}</span>
+        <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center">
+          <span className="text-primary font-display text-lg font-medium">{moduleId}</span>
         </div>
 
         {/* Content */}
         <div className="pr-12">
-          <h3 className="font-display text-xl text-foreground mb-1 group-hover:text-gold transition-colors">
+          <h3 className="font-display text-xl text-foreground mb-1 group-hover:text-primary transition-colors">
             {title}
           </h3>
-          <p className="text-sm text-muted-foreground mb-4">
+          <p className="text-sm text-foreground/70 mb-4">
             {subtitle}
           </p>
         </div>
@@ -35,8 +35,8 @@ export function ModuleCard({ moduleId, title, subtitle, progress }: ModuleCardPr
         {/* Progress bar */}
         <div className="mt-4">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs text-muted-foreground">Progresso</span>
-            <span className="text-xs font-medium text-gold">{progress}%</span>
+            <span className="text-xs text-foreground/60">Progresso</span>
+            <span className="text-xs font-semibold text-primary">{progress}%</span>
           </div>
           <div className="h-2 bg-muted rounded-full overflow-hidden">
             <div 
@@ -54,7 +54,7 @@ export function ModuleCard({ moduleId, title, subtitle, progress }: ModuleCardPr
               <span className="text-sm font-medium">Completo</span>
             </div>
           ) : (
-            <span className="text-sm text-muted-foreground">
+            <span className="text-sm text-foreground/70 font-medium">
               {progress > 0 ? 'Continuar' : 'Começar'}
             </span>
           )}

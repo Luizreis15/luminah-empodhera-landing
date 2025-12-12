@@ -116,10 +116,10 @@ export default function WorkbookLogin() {
       <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12">
         {/* Logo */}
         <div className="text-center mb-8 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-display text-gold tracking-wide mb-2">
+          <h1 className="text-4xl md:text-5xl font-display text-foreground tracking-wide mb-2">
             EMPODHERA
           </h1>
-          <p className="text-muted-foreground font-body text-sm uppercase tracking-widest">
+          <p className="text-foreground/70 font-body text-sm uppercase tracking-widest">
             Caderno de Atividades
           </p>
         </div>
