@@ -170,6 +170,36 @@ export type Database = {
         }
         Relationships: []
       }
+      workbook_responses: {
+        Row: {
+          activity_id: string
+          created_at: string | null
+          id: string
+          module_id: number
+          response: Json
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          activity_id: string
+          created_at?: string | null
+          id?: string
+          module_id: number
+          response?: Json
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          activity_id?: string
+          created_at?: string | null
+          id?: string
+          module_id?: number
+          response?: Json
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
