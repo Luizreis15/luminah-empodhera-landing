@@ -13,6 +13,9 @@ import AdminCampaigns from "./pages/AdminCampaigns";
 import AdminCampaignNew from "./pages/AdminCampaignNew";
 import AdminCampaignView from "./pages/AdminCampaignView";
 import AdminWaitingList from "./pages/AdminWaitingList";
+import WorkbookLogin from "./pages/WorkbookLogin";
+import WorkbookDashboard from "./pages/WorkbookDashboard";
+import WorkbookModule from "./pages/WorkbookModule";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +28,9 @@ const App = () => (
         <AuthProvider>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/caderno/login" element={<WorkbookLogin />} />
+            <Route path="/caderno" element={<WorkbookDashboard />} />
+            <Route path="/caderno/modulo/:moduleId" element={<WorkbookModule />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/admin/contacts" element={<AdminContacts />} />
