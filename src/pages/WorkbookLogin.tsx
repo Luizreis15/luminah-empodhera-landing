@@ -159,7 +159,6 @@ export default function WorkbookLogin() {
                         <Input 
                           type="email" 
                           placeholder="seu@email.com" 
-                          className="border-gold/20 focus:border-gold"
                           {...field} 
                         />
                       </FormControl>
@@ -179,7 +178,7 @@ export default function WorkbookLogin() {
                           <Input 
                             type={showPassword ? 'text' : 'password'} 
                             placeholder="••••••••"
-                            className="border-gold/20 focus:border-gold pr-10"
+                            className="pr-10"
                             {...field} 
                           />
                           <button
@@ -225,7 +224,6 @@ export default function WorkbookLogin() {
                       <FormControl>
                         <Input 
                           placeholder="Seu nome" 
-                          className="border-gold/20 focus:border-gold"
                           {...field} 
                         />
                       </FormControl>
@@ -244,7 +242,6 @@ export default function WorkbookLogin() {
                         <Input 
                           type="email" 
                           placeholder="seu@email.com" 
-                          className="border-gold/20 focus:border-gold"
                           {...field} 
                         />
                       </FormControl>
@@ -265,7 +262,6 @@ export default function WorkbookLogin() {
                         <Input 
                           type="tel" 
                           placeholder="(11) 99999-9999" 
-                          className="border-gold/20 focus:border-gold"
                           {...field} 
                         />
                       </FormControl>
@@ -285,7 +281,7 @@ export default function WorkbookLogin() {
                           <Input 
                             type={showPassword ? 'text' : 'password'} 
                             placeholder="Mínimo 6 caracteres"
-                            className="border-gold/20 focus:border-gold pr-10"
+                            className="pr-10"
                             {...field} 
                           />
                           <button
@@ -312,7 +308,6 @@ export default function WorkbookLogin() {
                         <Input 
                           type={showPassword ? 'text' : 'password'} 
                           placeholder="Repita a senha"
-                          className="border-gold/20 focus:border-gold"
                           {...field} 
                         />
                       </FormControl>
