@@ -12,7 +12,7 @@ import { ActivityCheckbox } from '@/components/workbook/ActivityCheckbox';
 import { useWorkbookAuth, useWorkbookResponses, useWorkbookProgress } from '@/hooks/useWorkbook';
 import { workbookModules } from '@/data/workbookModules';
 
-export default function WorkbookModule() {
+export default function Module() {
   const { moduleId } = useParams<{ moduleId: string }>();
   const navigate = useNavigate();
   const { user, isLoading: authLoading } = useWorkbookAuth();
@@ -26,14 +26,14 @@ export default function WorkbookModule() {
   // Redirect if not logged in
   useEffect(() => {
     if (!authLoading && !user) {
-      navigate('/caderno/login');
+      navigate('/login');
     }
   }, [user, authLoading, navigate]);
 
   // Redirect if invalid module
   useEffect(() => {
     if (!module) {
-      navigate('/caderno');
+      navigate('/dashboard');
     }
   }, [module, navigate]);
 
@@ -170,14 +170,14 @@ export default function WorkbookModule() {
           {/* Navigation */}
           <div className="flex items-center justify-between mt-12 pt-8 border-t border-gold/10">
             {prevModule ? (
-              <Link to={`/caderno/modulo/${prevModule}`}>
+              <Link to={`/modulo/${prevModule}`}>
                 <Button variant="outline" className="border-gold/20 hover:bg-gold/5">
                   <ChevronLeft size={18} className="mr-1" />
                   Módulo {prevModule}
                 </Button>
               </Link>
             ) : (
-              <Link to="/caderno">
+              <Link to="/dashboard">
                 <Button variant="outline" className="border-gold/20 hover:bg-gold/5">
                   <ChevronLeft size={18} className="mr-1" />
                   Dashboard
@@ -186,14 +186,14 @@ export default function WorkbookModule() {
             )}
 
             {nextModule ? (
-              <Link to={`/caderno/modulo/${nextModule}`}>
+              <Link to={`/modulo/${nextModule}`}>
                 <Button className="bg-gradient-gold text-white hover:opacity-90">
                   Módulo {nextModule}
                   <ChevronRight size={18} className="ml-1" />
                 </Button>
               </Link>
             ) : (
-              <Link to="/caderno">
+              <Link to="/dashboard">
                 <Button className="bg-gradient-gold text-white hover:opacity-90">
                   Concluir
                   <ChevronRight size={18} className="ml-1" />
