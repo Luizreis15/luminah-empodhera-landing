@@ -108,12 +108,6 @@ export default function WorkbookModule() {
   };
 
   return (
-    <>
-      <Helmet>
-        <title>{module.title} | Caderno EMPODHERA</title>
-        <meta name="description" content={module.subtitle} />
-      </Helmet>
-
       <div className="min-h-screen bg-background">
         <WorkbookHeader />
 
@@ -209,6 +203,5 @@ export default function WorkbookModule() {
           </div>
         </main>
       </div>
-    </>
   );
 }
