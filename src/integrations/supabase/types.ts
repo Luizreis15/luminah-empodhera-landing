@@ -50,6 +50,33 @@ export type Database = {
         }
         Relationships: []
       }
+      categories: {
+        Row: {
+          color: string | null
+          created_at: string | null
+          icon: string | null
+          id: string
+          name: string
+          type: Database["public"]["Enums"]["transaction_type"]
+        }
+        Insert: {
+          color?: string | null
+          created_at?: string | null
+          icon?: string | null
+          id?: string
+          name: string
+          type: Database["public"]["Enums"]["transaction_type"]
+        }
+        Update: {
+          color?: string | null
+          created_at?: string | null
+          icon?: string | null
+          id?: string
+          name?: string
+          type?: Database["public"]["Enums"]["transaction_type"]
+        }
+        Relationships: []
+      }
       contacts: {
         Row: {
           created_at: string
@@ -115,6 +142,169 @@ export type Database = {
             columns: ["contact_id"]
             isOneToOne: false
             referencedRelation: "contacts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      sales: {
+        Row: {
+          amount: number
+          buyer_email: string
+          buyer_name: string
+          buyer_phone: string | null
+          created_at: string | null
+          created_by: string
+          creator: Database["public"]["Enums"]["transaction_source"] | null
+          date: string
+          id: string
+          notes: string | null
+          platform: Database["public"]["Enums"]["sale_platform"]
+          source: Database["public"]["Enums"]["transaction_source"]
+          transaction_id: string | null
+        }
+        Insert: {
+          amount: number
+          buyer_email: string
+          buyer_name: string
+          buyer_phone?: string | null
+          created_at?: string | null
+          created_by: string
+          creator?: Database["public"]["Enums"]["transaction_source"] | null
+          date: string
+          id?: string
+          notes?: string | null
+          platform: Database["public"]["Enums"]["sale_platform"]
+          source: Database["public"]["Enums"]["transaction_source"]
+          transaction_id?: string | null
+        }
+        Update: {
+          amount?: number
+          buyer_email?: string
+          buyer_name?: string
+          buyer_phone?: string | null
+          created_at?: string | null
+          created_by?: string
+          creator?: Database["public"]["Enums"]["transaction_source"] | null
+          date?: string
+          id?: string
+          notes?: string | null
+          platform?: Database["public"]["Enums"]["sale_platform"]
+          source?: Database["public"]["Enums"]["transaction_source"]
+          transaction_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sales_transaction_id_fkey"
+            columns: ["transaction_id"]
+            isOneToOne: false
+            referencedRelation: "transactions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      sponsors: {
+        Row: {
+          benefits_delivered: Json | null
+          company_name: string
+          contact_email: string | null
+          contact_name: string | null
+          contact_phone: string | null
+          contracted_value: number
+          created_at: string | null
+          created_by: string
+          id: string
+          notes: string | null
+          payment_status: Database["public"]["Enums"]["transaction_status"]
+          plan: Database["public"]["Enums"]["sponsor_plan"]
+          updated_at: string | null
+        }
+        Insert: {
+          benefits_delivered?: Json | null
+          company_name: string
+          contact_email?: string | null
+          contact_name?: string | null
+          contact_phone?: string | null
+          contracted_value: number
+          created_at?: string | null
+          created_by: string
+          id?: string
+          notes?: string | null
+          payment_status?: Database["public"]["Enums"]["transaction_status"]
+          plan: Database["public"]["Enums"]["sponsor_plan"]
+          updated_at?: string | null
+        }
+        Update: {
+          benefits_delivered?: Json | null
+          company_name?: string
+          contact_email?: string | null
+          contact_name?: string | null
+          contact_phone?: string | null
+          contracted_value?: number
+          created_at?: string | null
+          created_by?: string
+          id?: string
+          notes?: string | null
+          payment_status?: Database["public"]["Enums"]["transaction_status"]
+          plan?: Database["public"]["Enums"]["sponsor_plan"]
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      transactions: {
+        Row: {
+          amount: number
+          category_id: string | null
+          created_at: string | null
+          created_by: string
+          date: string
+          description: string | null
+          id: string
+          is_recurring: boolean | null
+          payment_method: Database["public"]["Enums"]["payment_method"] | null
+          source: Database["public"]["Enums"]["transaction_source"] | null
+          status: Database["public"]["Enums"]["transaction_status"]
+          subcategory: string | null
+          type: Database["public"]["Enums"]["transaction_type"]
+          updated_at: string | null
+        }
+        Insert: {
+          amount: number
+          category_id?: string | null
+          created_at?: string | null
+          created_by: string
+          date: string
+          description?: string | null
+          id?: string
+          is_recurring?: boolean | null
+          payment_method?: Database["public"]["Enums"]["payment_method"] | null
+          source?: Database["public"]["Enums"]["transaction_source"] | null
+          status?: Database["public"]["Enums"]["transaction_status"]
+          subcategory?: string | null
+          type: Database["public"]["Enums"]["transaction_type"]
+          updated_at?: string | null
+        }
+        Update: {
+          amount?: number
+          category_id?: string | null
+          created_at?: string | null
+          created_by?: string
+          date?: string
+          description?: string | null
+          id?: string
+          is_recurring?: boolean | null
+          payment_method?: Database["public"]["Enums"]["payment_method"] | null
+          source?: Database["public"]["Enums"]["transaction_source"] | null
+          status?: Database["public"]["Enums"]["transaction_status"]
+          subcategory?: string | null
+          type?: Database["public"]["Enums"]["transaction_type"]
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "transactions_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "categories"
             referencedColumns: ["id"]
           },
         ]
@@ -215,6 +405,18 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "user" | "financeiro" | "viewer"
+      payment_method: "pix" | "credito" | "debito" | "transferencia" | "boleto"
+      sale_platform: "site" | "whatsapp" | "instagram" | "sympla" | "indicacao"
+      sponsor_plan: "bronze" | "prata" | "ouro" | "diamante"
+      transaction_source:
+        | "organico"
+        | "indicacao"
+        | "criadora_samira"
+        | "criadora_simone"
+        | "criadora_sueli"
+        | "trafego_pago"
+      transaction_status: "previsto" | "recebido" | "pago" | "cancelado"
+      transaction_type: "receita" | "despesa"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -343,6 +545,19 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "user", "financeiro", "viewer"],
+      payment_method: ["pix", "credito", "debito", "transferencia", "boleto"],
+      sale_platform: ["site", "whatsapp", "instagram", "sympla", "indicacao"],
+      sponsor_plan: ["bronze", "prata", "ouro", "diamante"],
+      transaction_source: [
+        "organico",
+        "indicacao",
+        "criadora_samira",
+        "criadora_simone",
+        "criadora_sueli",
+        "trafego_pago",
+      ],
+      transaction_status: ["previsto", "recebido", "pago", "cancelado"],
+      transaction_type: ["receita", "despesa"],
     },
   },
 } as const

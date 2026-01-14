@@ -16,6 +16,9 @@ import AdminWaitingList from "./pages/AdminWaitingList";
 import WorkbookLogin from "./pages/WorkbookLogin";
 import WorkbookDashboard from "./pages/WorkbookDashboard";
 import WorkbookModule from "./pages/WorkbookModule";
+import FinanceDashboard from "./pages/FinanceDashboard";
+import FinanceTransactions from "./pages/FinanceTransactions";
+import FinanceDRE from "./pages/FinanceDRE";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +38,10 @@ const App = () => (
             <Route path="/admin/campaigns/new" element={<AdminCampaignNew />} />
             <Route path="/admin/campaigns/:id" element={<AdminCampaignView />} />
             <Route path="/admin/waiting-list" element={<AdminWaitingList />} />
+            <Route path="/admin/financeiro" element={<FinanceDashboard />} />
+            <Route path="/admin/financeiro/receitas" element={<FinanceTransactions type="receita" />} />
+            <Route path="/admin/financeiro/despesas" element={<FinanceTransactions type="despesa" />} />
+            <Route path="/admin/financeiro/dre" element={<FinanceDRE />} />
             <Route path="/caderno" element={<WorkbookLogin />} />
             <Route path="/caderno/login" element={<WorkbookLogin />} />
             <Route path="/caderno/dashboard" element={<WorkbookDashboard />} />
