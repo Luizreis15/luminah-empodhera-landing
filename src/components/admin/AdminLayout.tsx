@@ -11,7 +11,8 @@ import {
   Loader2,
   Menu,
   X,
-  Clock
+  Clock,
+  DollarSign
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -25,6 +26,7 @@ const navItems = [
   { icon: Clock, label: 'Lista de Espera', path: '/admin/waiting-list' },
   { icon: Mail, label: 'Campanhas', path: '/admin/campaigns' },
   { icon: Plus, label: 'Nova Campanha', path: '/admin/campaigns/new' },
+  { icon: DollarSign, label: 'Financeiro', path: '/admin/financeiro' },
 ];
 
 export default function AdminLayout({ children }: AdminLayoutProps) {
