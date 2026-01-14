@@ -19,6 +19,8 @@ import WorkbookModule from "./pages/WorkbookModule";
 import FinanceDashboard from "./pages/FinanceDashboard";
 import FinanceTransactions from "./pages/FinanceTransactions";
 import FinanceDRE from "./pages/FinanceDRE";
+import FinanceSales from "./pages/FinanceSales";
+import FinanceSponsors from "./pages/FinanceSponsors";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +44,8 @@ const App = () => (
             <Route path="/admin/financeiro/receitas" element={<FinanceTransactions type="receita" />} />
             <Route path="/admin/financeiro/despesas" element={<FinanceTransactions type="despesa" />} />
             <Route path="/admin/financeiro/dre" element={<FinanceDRE />} />
+            <Route path="/admin/financeiro/vendas" element={<FinanceSales />} />
+            <Route path="/admin/financeiro/patrocinadores" element={<FinanceSponsors />} />
             <Route path="/caderno" element={<WorkbookLogin />} />
             <Route path="/caderno/login" element={<WorkbookLogin />} />
             <Route path="/caderno/dashboard" element={<WorkbookDashboard />} />
