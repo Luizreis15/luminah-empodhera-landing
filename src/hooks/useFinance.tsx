@@ -178,7 +178,7 @@ export function useUpdateTransaction() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async ({ id, ...updates }: Partial<Transaction> & { id: string }) => {
+    mutationFn: async ({ id, ...updates }: Partial<Omit<Transaction, 'category'>> & { id: string }) => {
       const { data, error } = await supabase
         .from('transactions')
         .update(updates)
